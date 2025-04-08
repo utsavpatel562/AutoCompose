@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./button";
+import { Box, Sparkles } from "lucide-react";
 
 function HeroSection() {
   return (
@@ -13,20 +14,23 @@ function HeroSection() {
               </h1>
               <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
                 Elevate every message.{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#843df6] to-[#fc1af4]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#843df6] to-[#fd0fd9]">
                   AI-powered email creation, simplified.
                 </span>
               </h2>
               <p className="max-w-2xl mx-auto">
-                Sed ut perspiciatis unde omnis iste natus voluptatem accusantium
-                doloremque laudantium, totam rem aperiam, eaque ipsa quae.
+                AutoCompose uses advanced AI to generate, edit, and customize
+                email templates for any occasion — saving you time and boosting
+                productivity.
               </p>
-              <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-                <Button className="cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-white font-medium bg-violet-600 duration-150 hover:bg-violet-500 active:bg-violet-700 rounded-sm shadow-lg hover:shadow-none">
+              <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0">
+                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-white font-medium bg-violet-600 duration-150 hover:bg-violet-500 active:bg-violet-700 rounded-sm shadow-lg hover:shadow-none">
                   Register Now
+                  <Sparkles />
                 </Button>
-                <Button className="cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-violet-600 font-medium bg-slate-100 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
+                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-violet-600 font-medium bg-slate-100 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
                   Learn More
+                  <Box />
                 </Button>
               </div>
             </div>
