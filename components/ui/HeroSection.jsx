@@ -6,7 +6,18 @@ function HeroSection() {
   return (
     <>
       <div>
-        <section>
+        <section
+          className="w-full h-full"
+          style={{
+            "--color": "#E1E1E1",
+            backgroundColor: "#F3F3F3",
+            backgroundImage: `
+          linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+          linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent)
+        `,
+            backgroundSize: "55px 55px",
+          }}
+        >
           <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
             <div className="space-y-5 max-w-4xl mx-auto text-center">
               <h1 className="text-sm text-violet-600 font-medium">
@@ -28,7 +39,7 @@ function HeroSection() {
                   Register Now
                   <Sparkles />
                 </Button>
-                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-violet-600 font-medium bg-slate-100 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
+                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
                   Learn More
                   <Box />
                 </Button>
