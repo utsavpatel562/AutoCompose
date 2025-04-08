@@ -66,7 +66,7 @@ function Header() {
             <li className="order-2 pb-5 md:pb-0 flex gap-1">
               <Button
                 href="javascript:void(0)"
-                className="bg-pink-600 hover:bg-pink-500 p-5 rounded-sm cursor-pointer"
+                className="bg-violet-600 hover:bg-violet-500 p-5 rounded-sm cursor-pointer"
               >
                 Sign In
               </Button>
@@ -80,7 +80,7 @@ function Header() {
             <div className="order-1 flex-1 justify-center items-center space-y-5 md:flex md:space-x-6 md:space-y-0">
               {navigation.map((item, idx) => (
                 <li
-                  className="text-gray-500 hover:text-pink-600 font-semibold"
+                  className="text-gray-500 hover:text-violet-600 font-semibold"
                   key={idx}
                 >
                   <a href={item.path}>{item.title}</a>
