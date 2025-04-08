@@ -1,9 +1,11 @@
+import Header from "@/components/ui/Header";
+import HeroSection from "@/components/ui/HeroSection";
+
 export default function Home() {
   return (
     <>
-    <div>
-      <h1 className="text-center">AutoCompose</h1>
-    </div>
+    <Header/>
+    <HeroSection/>
     </>
   );
 }
