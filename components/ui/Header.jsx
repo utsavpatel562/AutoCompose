@@ -20,7 +20,7 @@ function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white border-b-2">
-        <nav className="items-center pt-5 md:pb-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6">
+        <nav className="items-center pt-5 pb-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6">
           <div className="flex justify-between">
             <a href="javascript:void(0)">
               <img src="/logo.png" width={180} height={180} alt="AutoCompose" />

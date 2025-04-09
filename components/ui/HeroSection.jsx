@@ -35,7 +35,7 @@ function HeroSection() {
                 productivity.
               </p>
               <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0">
-                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-violet-600 text-white font-medium bg-violet-600 duration-150 hover:bg-violet-500 active:bg-violet-700 rounded-sm shadow-lg hover:shadow-none">
+                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-slate-700 text-white font-medium bg-slate-800 duration-150 hover:bg-slate-950 active:bg-violet-700 rounded-sm shadow-lg hover:shadow-none">
                   Register Now
                   <Sparkles />
                 </Button>
