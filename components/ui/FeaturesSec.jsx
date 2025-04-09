@@ -1,7 +1,9 @@
 import React from "react";
-import { RiLayout2Line, RiSave2Fill } from "react-icons/ri";
+import { RiLayout2Line, RiMailDownloadLine, RiSave2Fill } from "react-icons/ri";
 import { RiAiGenerate2 } from "react-icons/ri";
-
+import { TbDragDrop } from "react-icons/tb";
+import { MdOutlineAutoAwesome } from "react-icons/md";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 function FeaturesSec() {
   return (
     <>
@@ -32,16 +34,7 @@ function FeaturesSec() {
           <div className="mt-16 grid divide-x divide-y  divide-gray-700 overflow-hidden  rounded-3xl border text-gray-600 border-gray-700 sm:grid-cols-2 lg:grid-cols-4  lg:divide-y-0 xl:grid-cols-4">
             <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl  hover:shadow-gray-600/10">
               <div className="relative space-y-8 py-12 p-8">
-                <img
-                  src="https://www.svgrepo.com/show/164986/logo.svg"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                  className="w-12 h-12 rounded-full"
-                  style={{
-                    color: "transparent",
-                  }}
-                />
+                <TbDragDrop className="w-14 h-14 text-violet-100" />
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
                     Drag & Drop Layout Builder
@@ -55,16 +48,7 @@ function FeaturesSec() {
             </div>
             <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div className="relative space-y-8 py-12 p-8">
-                <img
-                  src="https://www.svgrepo.com/show/120853/logo.svg"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                  className="w-12 h-12 rounded-full"
-                  style={{
-                    color: "transparent",
-                  }}
-                />
+                <MdOutlineAutoAwesome className="w-14 h-14 text-violet-100" />
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
                     AI-Powered Template Generator
@@ -78,16 +62,7 @@ function FeaturesSec() {
             </div>
             <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div className="relative space-y-8 py-12 p-8">
-                <img
-                  src="https://www.svgrepo.com/show/120852/logo.svg"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                  className="w-12 h-12 rounded-full"
-                  style={{
-                    color: "transparent",
-                  }}
-                />
+                <RiMailDownloadLine className="w-14 h-14 text-violet-100" />
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
                     Save & Reuse Templates
@@ -100,16 +75,7 @@ function FeaturesSec() {
             </div>
             <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
               <div className="relative space-y-8 py-12 p-8">
-                <img
-                  src="https://www.svgrepo.com/show/120850/logo.svg"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                  className="w-12 h-12 rounded-full"
-                  style={{
-                    color: "transparent",
-                  }}
-                />
+                <MdOutlineDashboardCustomize className="w-14 h-14 text-violet-100" />
                 <div className="space-y-2">
                   <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
                     Custom Branding
