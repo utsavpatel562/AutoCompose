@@ -5,6 +5,125 @@ import { RiAiGenerate2 } from "react-icons/ri";
 function FeaturesSec() {
   return (
     <>
+      <div
+        className="bg-slate-50 p-4 pb-25 w-full"
+        style={{
+          background:
+            "radial-gradient(125% 125% at 50% 10%, rgba(255, 255, 255, 0.8) 40%, rgba(178, 102, 255, 0.8) 100%)",
+        }}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-20"
+        >
+          <div className="blur-[106px] h-56 bg-gradient-to-br  to-purple-400 from-blue-700"></div>
+          <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400  to-indigo-600"></div>
+        </div>
+        <div className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6">
+          <div className="text-center mt-12 text-gray-100">
+            <p className="text-slate-500">
+              We have built many products and some of them are below
+            </p>
+            <h2 className="my-2 text-2xl font-bold text-black md:text-4xl">
+              Top Features of{" "}
+              <span className="text-violet-700">AutoCompose</span>
+            </h2>
+          </div>
+          <div className="mt-16 grid divide-x divide-y  divide-gray-700 overflow-hidden  rounded-3xl border text-gray-600 border-gray-700 sm:grid-cols-2 lg:grid-cols-4  lg:divide-y-0 xl:grid-cols-4">
+            <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl  hover:shadow-gray-600/10">
+              <div className="relative space-y-8 py-12 p-8">
+                <img
+                  src="https://www.svgrepo.com/show/164986/logo.svg"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                  className="w-12 h-12 rounded-full"
+                  style={{
+                    color: "transparent",
+                  }}
+                />
+                <div className="space-y-2">
+                  <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
+                    Drag & Drop Layout Builder
+                  </h5>
+                  <p className="text-gray-300">
+                    Design your perfect layout with zero code using our
+                    intuitive editor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div className="relative space-y-8 py-12 p-8">
+                <img
+                  src="https://www.svgrepo.com/show/120853/logo.svg"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                  className="w-12 h-12 rounded-full"
+                  style={{
+                    color: "transparent",
+                  }}
+                />
+                <div className="space-y-2">
+                  <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
+                    AI-Powered Template Generator
+                  </h5>
+                  <p className="text-gray-300">
+                    From subject line to CTA — generate clear, compelling emails
+                    in seconds.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div className="relative space-y-8 py-12 p-8">
+                <img
+                  src="https://www.svgrepo.com/show/120852/logo.svg"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                  className="w-12 h-12 rounded-full"
+                  style={{
+                    color: "transparent",
+                  }}
+                />
+                <div className="space-y-2">
+                  <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
+                    Save & Reuse Templates
+                  </h5>
+                  <p className="text-gray-300">
+                    Save your favorite templates and reuse them with a click.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+              <div className="relative space-y-8 py-12 p-8">
+                <img
+                  src="https://www.svgrepo.com/show/120850/logo.svg"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                  className="w-12 h-12 rounded-full"
+                  style={{
+                    color: "transparent",
+                  }}
+                />
+                <div className="space-y-2">
+                  <h5 className="text-xl font-semibold text-white transition group-hover:text-secondary">
+                    Custom Branding
+                  </h5>
+                  <p className="text-gray-300">
+                    Apply your logos, fonts, and colors for consistent,
+                    professional emails.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <section className="py-10 bg-gray-50 dark:bg-slate-800 sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto text-center">
