@@ -96,13 +96,13 @@ function Header() {
                   Docs
                 </li>
               </Link>
-              <Link href={"#"}>
+              <Link href={"/#Contact"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
                   <Mail className="w-4 h-4" />
                   Contact
                 </li>
               </Link>
-              <Link href={"#"}>
+              <Link href={"/about_me"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
                   <FileUser className="w-4 h-4" />
                   About

@@ -25,7 +25,7 @@ function ContactMe() {
   ];
   return (
     <>
-      <section className="py-14 p-10 md:p-10">
+      <section className="py-14 p-10 md:p-10" id="Contact">
         <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-12 md:px-8 lg:flex">
           <div className="max-w-md md:mt-5">
             <h3 className="text-slate-600 text-3xl font-semibold sm:text-4xl">
