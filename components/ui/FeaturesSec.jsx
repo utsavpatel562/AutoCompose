@@ -11,7 +11,7 @@ function FeaturesSec() {
         className="bg-slate-50 p-4 pb-25 w-full"
         style={{
           background:
-            "radial-gradient(125% 125% at 50% 10%, rgba(255, 255, 255, 0.8) 40%, rgba(178, 102, 255, 0.8) 100%)",
+            "radial-gradient(125% 125% at 50% 10%, rgba(255, 255, 255, 0.4) 40%, rgba(178, 102, 255, 0.4) 100%)",
         }}
       >
         <div
@@ -146,7 +146,7 @@ function FeaturesSec() {
             <div className="lg:col-span-3">
               <img
                 className="w-full rounded-lg shadow-xl"
-                src="/demopic.png"
+                src="/demoimg.png"
                 alt="Dashboard screenshot"
               />
             </div>

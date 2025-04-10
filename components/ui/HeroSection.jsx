@@ -20,19 +20,19 @@ function HeroSection() {
                   AI-powered email creation, simplified.
                 </span>
               </h2>
-              <p className="max-w-2xl mx-auto">
+              <p className="max-w-2xl mx-auto text-lg">
                 AutoCompose uses advanced AI to generate, edit, and customize
                 email templates for any occasion — saving you time and boosting
                 productivity.
               </p>
-              <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0">
+              <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0 py-11">
                 <Link href={"#"}>
-                  <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-slate-700 text-white font-medium bg-slate-800 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none">
+                  <Button className="flex items-center gap-2 cursor-pointer p-6 border-2 border-slate-700 text-white font-medium bg-slate-800 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none">
                     Register Now
                     <Sparkles />
                   </Button>
                 </Link>
-                <Button className="flex items-center gap-2 cursor-pointer p-5 pr-6 pl-6 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
+                <Button className="flex items-center gap-2 cursor-pointer p-6 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
                   Learn More
                   <Box />
                 </Button>
