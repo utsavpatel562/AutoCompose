@@ -1,4 +1,5 @@
 "use client"
+import ContactMe from "@/components/ui/ContactMe";
 import FeaturesSec from "@/components/ui/FeaturesSec";
 import Header from "@/components/ui/Header";
 import HeroSection from "@/components/ui/HeroSection";
@@ -11,6 +12,7 @@ export default function Home() {
     <HeroSection/>
     <UsedLang/>
     <FeaturesSec/>
+    <ContactMe/>
     </>
   );
 }

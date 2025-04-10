@@ -78,19 +78,19 @@ function Header() {
               </Button>
             </li>
             <div className="order-1 bg-slate-900 p-3 md:p-0 rounded-md md:bg-transparent flex-1 justify-center items-center space-y-5 md:flex md:space-x-6 md:space-y-0">
-              <Link href={"#"}>
+              <Link href={"/"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
                   <HomeIcon className="w-4 h-4" />
                   Home
                 </li>
               </Link>
-              <Link href={"#"}>
+              <Link href={"/#TopFeatures"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
                   <Layers className="w-4 h-4" />
                   Features
                 </li>
               </Link>
-              <Link href={"#"}>
+              <Link href={"/project_pages"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
                   <FileCode2 className="w-4 h-4" />
                   Docs
@@ -98,14 +98,14 @@ function Header() {
               </Link>
               <Link href={"#"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
-                  <FileUser className="w-4 h-4" />
-                  About
+                  <Mail className="w-4 h-4" />
+                  Contact
                 </li>
               </Link>
               <Link href={"#"}>
                 <li className="flex items-center gap-2 hover:bg-violet-50 md:p-2 rounded-full md:pr-5 md:pl-5 text-slate-100 md:text-gray-500 hover:text-violet-600 font-semibold">
-                  <Mail className="w-4 h-4" />
-                  Contact
+                  <FileUser className="w-4 h-4" />
+                  About
                 </li>
               </Link>
             </div>

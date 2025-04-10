@@ -4,7 +4,7 @@ import { RiAiGenerate2 } from "react-icons/ri";
 import { TbDragDrop } from "react-icons/tb";
 import { MdOutlineAutoAwesome } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
-
+import { MdMailOutline } from "react-icons/md";
 function FeaturesSec() {
   return (
     <>
@@ -24,7 +24,7 @@ function FeaturesSec() {
         </div>
         <div className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6">
           <div className="text-center mt-12 text-gray-100">
-            <p className="text-slate-500">
+            <p className="text-slate-500" id="TopFeatures">
               We have built many products and some of them are below
             </p>
             <h2 className="my-2 text-2xl font-bold text-black md:text-4xl">
@@ -182,9 +182,10 @@ function FeaturesSec() {
             <div className="mt-4">
               <a
                 href="#"
-                className="inline-block py-3 px-8 text-white font-medium bg-gray-800 duration-150 hover:bg-transparent hover:text-gray-800 border-2 border-gray-800 active:bg-gray-900 rounded-sm shadow-md hover:shadow-none"
+                className="inline-flex items-center gap-2 py-3 px-8 text-white font-medium bg-gray-800 duration-150 hover:bg-transparent hover:text-gray-800 border-2 border-gray-800 active:bg-gray-900 rounded-sm shadow-md hover:shadow-none"
               >
-                Sign Up Today
+                Register Today
+                <MdMailOutline className="w-5 h-5" />
               </a>
             </div>
           </div>
