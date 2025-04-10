@@ -4,6 +4,7 @@ import { RiAiGenerate2 } from "react-icons/ri";
 import { TbDragDrop } from "react-icons/tb";
 import { MdOutlineAutoAwesome } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+
 function FeaturesSec() {
   return (
     <>
@@ -31,7 +32,9 @@ function FeaturesSec() {
               <span className="text-violet-700">AutoCompose</span>
             </h2>
           </div>
-          <div className="mt-16 grid divide-x divide-y  divide-gray-700 overflow-hidden  rounded-3xl border text-gray-600 border-gray-700 sm:grid-cols-2 lg:grid-cols-4  lg:divide-y-0 xl:grid-cols-4">
+
+          {/* ✅ Responsive feature grid */}
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-700 overflow-hidden rounded-3xl border text-gray-600 border-gray-700">
             <div className="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl  hover:shadow-gray-600/10">
               <div className="relative space-y-8 py-12 p-8">
                 <TbDragDrop className="w-14 h-14 text-violet-100" />
@@ -90,19 +93,21 @@ function FeaturesSec() {
           </div>
         </div>
       </div>
+
+      {/* Steps section */}
       <section className="py-10 bg-gray-50 dark:bg-slate-800 sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto text-center">
             <p className="text-sm tracking-widest text-blue-600 dark:text-sky-300 font-bold uppercase">
               From idea to inbox in 3 easy steps.
             </p>
-
             <h2 className="mt-6 text-3xl font-bold leading-tight text-black dark:text-slate-50 sm:text-4xl lg:text-5xl">
               Design. Generate. Send. It’s that simple.
             </h2>
           </div>
 
-          <div className="grid items-center grid-cols-1 mt-12 gap-y-10 lg:grid-cols-5 sm:mt-20 gap-x-4">
+          {/* ✅ Responsive steps grid */}
+          <div className="grid items-center grid-cols-1 gap-y-10 gap-x-8 mt-12 sm:grid-cols-2 lg:grid-cols-5 sm:mt-20">
             <div className="space-y-8 lg:pr-16 xl:pr-24 lg:col-span-2 lg:space-y-12">
               <div className="flex items-center">
                 <RiLayout2Line className="w-15 h-15 text-yellow-500" />
@@ -116,7 +121,6 @@ function FeaturesSec() {
                   </p>
                 </div>
               </div>
-
               <div className="flex items-center">
                 <RiAiGenerate2 className="w-15 h-15 text-rose-600" />
                 <div className="ml-5">
@@ -129,7 +133,6 @@ function FeaturesSec() {
                   </p>
                 </div>
               </div>
-
               <div className="flex items-center">
                 <RiSave2Fill className="w-14 h-14 text-green-600" />
                 <div className="ml-5">
@@ -142,7 +145,6 @@ function FeaturesSec() {
                 </div>
               </div>
             </div>
-
             <div className="lg:col-span-3">
               <img
                 className="w-full rounded-lg shadow-xl"
@@ -153,6 +155,41 @@ function FeaturesSec() {
           </div>
         </div>
       </section>
+
+      {/* CTA section */}
+      <div className="p-5 bg-zinc-50">
+        <section
+          className="py-28 rounded-lg"
+          style={{
+            background:
+              "linear-gradient(152.92deg, rgba(192, 132, 252, 0.1) 4.54%, rgba(232, 121, 249, 0.29) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)",
+          }}
+        >
+          <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
+            <div className="max-w-4xl space-y-3 md:mx-auto">
+              <h3 className="text-indigo-600 font-semibold">
+                UNLOCK THE POWER OF AI-GENERATED EMAILS
+              </h3>
+              <p className="text-gray-800 text-3xl font-semibold sm:text-5xl">
+                Start writing emails you’re proud of.
+              </p>
+              <p className="text-gray-600">
+                Design layouts visually and generate powerful, personalized
+                content with AI. AutoCompose makes email building faster,
+                smarter, and easier than ever.
+              </p>
+            </div>
+            <div className="mt-4">
+              <a
+                href="#"
+                className="inline-block py-3 px-8 text-white font-medium bg-gray-800 duration-150 hover:bg-transparent hover:text-gray-800 border-2 border-gray-800 active:bg-gray-900 rounded-sm shadow-md hover:shadow-none"
+              >
+                Sign Up Today
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

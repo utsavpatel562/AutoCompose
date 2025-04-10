@@ -14,13 +14,13 @@ function HeroSection() {
               <h1 className="text-sm text-violet-600 font-medium">
                 AI that turns your ideas into perfect emails.
               </h1>
-              <h2 className="text-4xl text-gray-800 font-extrabold mx-auto md:text-5xl">
+              <h2 className="text-3xl text-gray-800 font-extrabold mx-auto md:text-5xl">
                 Elevate every message.{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#843df6] to-[#fd0fd9]">
                   AI-powered email creation, simplified.
                 </span>
               </h2>
-              <p className="max-w-2xl mx-auto text-lg">
+              <p className="max-w-2xl mx-auto md:text-lg">
                 AutoCompose uses advanced AI to generate, edit, and customize
                 email templates for any occasion — saving you time and boosting
                 productivity.
