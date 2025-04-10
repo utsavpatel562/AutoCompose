@@ -1,3 +1,3 @@
 ### AutoCompose - AI Email Template Builder
 ###
-<img src="/demoimg.png" alt="AutoCompose Final Look"/>
+<img src="public/demoimg.png" alt="AutoCompose Final Look"/>
