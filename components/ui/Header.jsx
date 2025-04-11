@@ -1,19 +1,9 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { Button } from "./button";
-import {
-  CircleFadingPlus,
-  FileCode2,
-  FileUser,
-  HomeIcon,
-  Layers,
-  LucideUserRound,
-  Mail,
-  Plus,
-  UserRoundPlus,
-} from "lucide-react";
+import { FileCode2, FileUser, HomeIcon, Layers, Mail } from "lucide-react";
 import Link from "next/link";
+import SignInButton from "../customs/SignInButton";
 
 function Header() {
   const [state, setState] = useState(false);
@@ -68,14 +58,7 @@ function Header() {
             }`}
           >
             <li className="order-2 pb-5 md:pb-0 flex gap-2">
-              <Button className="flex items-center gap-2 bg-violet-600 hover:bg-violet-500 p-5 rounded-sm cursor-pointer">
-                Sign In
-                <LucideUserRound />
-              </Button>
-              <Button className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 p-5 rounded-sm cursor-pointer">
-                Register Now
-                <UserRoundPlus />
-              </Button>
+              <SignInButton />
             </li>
             <div className="order-1 bg-slate-900 p-3 md:p-0 rounded-md md:bg-transparent flex-1 justify-center items-center space-y-5 md:flex md:space-x-6 md:space-y-0">
               <Link href={"/"}>
