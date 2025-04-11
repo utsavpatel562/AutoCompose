@@ -1,7 +1,18 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { FileCode2, FileUser, HomeIcon, Layers, Mail } from "lucide-react";
+import { Button } from "./button";
+import {
+  CircleFadingPlus,
+  FileCode2,
+  FileUser,
+  HomeIcon,
+  Layers,
+  LucideUserRound,
+  Mail,
+  Plus,
+  UserRoundPlus,
+} from "lucide-react";
 import Link from "next/link";
 import SignInButton from "../customs/SignInButton";
 

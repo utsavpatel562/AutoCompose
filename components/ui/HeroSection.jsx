@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "./button";
 import { Box, Sparkles } from "lucide-react";
 import Link from "next/link";
+import SignInButton from "../customs/SignInButton";
 
 function HeroSection() {
   return (
@@ -26,13 +27,8 @@ function HeroSection() {
                 productivity.
               </p>
               <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0 py-11">
-                <Link href={"#"}>
-                  <Button className="flex items-center gap-2 cursor-pointer p-6 border-2 border-slate-700 text-white font-medium bg-slate-800 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none">
-                    Register Now
-                    <Sparkles />
-                  </Button>
-                </Link>
-                <Button className="flex items-center gap-2 cursor-pointer p-6 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
+                <SignInButton />
+                <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
                   Learn More
                   <Box />
                 </Button>
