@@ -5,6 +5,7 @@ import { TbDragDrop } from "react-icons/tb";
 import { MdOutlineAutoAwesome } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdMailOutline } from "react-icons/md";
+import { Safari } from "../magicui/safari";
 function FeaturesSec() {
   return (
     <>
@@ -146,10 +147,10 @@ function FeaturesSec() {
               </div>
             </div>
             <div className="lg:col-span-3">
-              <img
-                className="w-full rounded-lg shadow-xl"
-                src="/demoimg.png"
-                alt="Dashboard screenshot"
+              <Safari
+                url="magicui.design"
+                className="size-full"
+                videoSrc="/demovid.mp4"
               />
             </div>
           </div>
