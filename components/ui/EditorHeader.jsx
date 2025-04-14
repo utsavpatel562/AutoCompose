@@ -36,7 +36,7 @@ function EditorHeader() {
         <div className="flex items-center flex-wrap gap-2 sm:justify-end">
           <Button
             variant="ghost"
-            className="cursor-pointer bg-violet-100 text-violet-600 hover:bg-violet-50"
+            className="cursor-pointer bg-violet-50 text-violet-500 hover:bg-violet-100 hover:text-violet-500"
           >
             <Code />
           </Button>
