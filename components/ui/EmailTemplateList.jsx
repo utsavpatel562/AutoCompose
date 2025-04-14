@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { Button } from "./button";
 
 function EmailTemplateList() {
   const [emailList, setEmailList] = useState([]);
