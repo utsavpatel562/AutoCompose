@@ -9,12 +9,19 @@ function Editor() {
     <>
       <div>
         <EditorHeader />
-        <div className="grid grid-cols-5">
-          <ElementSideBar />
-          <div className="col-span-3 bg-slate-100">
+        <div className="grid grid-cols-1 md:grid-cols-5">
+          {/* Sidebar full width on mobile, 1 column on medium and up */}
+          <div className="md:col-span-1">
+            <ElementSideBar />
+          </div>
+          {/* Canvas center section full width on mobile, 3 columns on medium and up */}
+          <div className="md:col-span-3 bg-slate-100">
             <Canvas />
           </div>
-          <Settings />
+          {/* Settings full width on mobile, 1 column on medium and up */}
+          <div className="md:col-span-1">
+            <Settings />
+          </div>
         </div>
       </div>
     </>
