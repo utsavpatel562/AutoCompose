@@ -103,6 +103,7 @@ export default [
       width: "100%",
     },
   },
+  /*
   {
     icon: PanelTop,
     type: "LogoHeader",
@@ -123,7 +124,7 @@ export default [
       backgroundColor: "#fff",
       width: "100%",
     },
-  },
+  },*/
   {
     icon: SquareSplitVertical,
     type: "Divider",

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Button } from "./button";
@@ -5,7 +6,9 @@ import { Code } from "lucide-react";
 import { MdSaveAlt, MdOpenInNew } from "react-icons/md";
 import { IoDesktopOutline } from "react-icons/io5";
 import { FaMobileScreen } from "react-icons/fa6";
+import { useScreenSize } from "@/app/provider";
 function EditorHeader() {
+  const { screenSize, setScreenSize } = useScreenSize();
   return (
     <>
       <div className="p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
@@ -20,14 +23,16 @@ function EditorHeader() {
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
-            className="text-violet-600 bg-violet-50 hover:bg-violet-100 hover:text-violet-500 cursor-pointer"
+            onClick={() => setScreenSize("desktop")}
+            className={`${screenSize == "desktop" && "bg-violet-50 text-violet-600"} cursor-pointer`}
           >
             <IoDesktopOutline />
             Desktop
           </Button>
           <Button
             variant="ghost"
-            className="text-violet-600 bg-violet-50 hover:bg-violet-100 hover:text-violet-500 cursor-pointer"
+            onClick={() => setScreenSize("mobile")}
+            className={`${screenSize == "mobile" && "bg-violet-50 text-violet-600"} cursor-pointer`}
           >
             <FaMobileScreen />
             Mobile
