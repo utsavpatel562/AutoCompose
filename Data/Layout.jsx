@@ -11,19 +11,19 @@ export default [
   },
   {
     label: "2 Column",
-    type: "column-2",
+    type: "column",
     numOfCol: 2,
     icon: LuColumns2,
   },
   {
     label: "3 Column",
-    type: "column-3",
+    type: "column",
     numOfCol: 3,
     icon: LuColumns3,
   },
   {
     label: "4 Column",
-    type: "column-4",
+    type: "column",
     numOfCol: 4,
     icon: LuColumns4,
   },
