@@ -1,6 +1,9 @@
 "use client";
 import { useDragElementLayout, useEmailTemplate } from "@/app/provider";
 import React, { useState } from "react";
+import ButtonComponent from "../customs/Element/ButtonComponent";
+import TextComponent from "../customs/Element/TextComponent";
+import ImageComponent from "../customs/Element/ImageComponent";
 
 function ColmunLayout({ layout }) {
   const [dragOver, setDragOver] = useState();
@@ -22,10 +25,17 @@ function ColmunLayout({ layout }) {
           : col
       )
     );
+    console.log(emailTemplate);
     setDragOver(null);
   };
   const GetElementComponent = (element) => {
-    console.log(element);
+    if (element?.type == "Button") {
+      return <ButtonComponent {...element} />;
+    } else if (element?.type == "Text") {
+      return <TextComponent {...element} />;
+    } else if (element?.type == "Image") {
+      return <ImageComponent {...element} />;
+    }
     return element?.type;
   };
   return (
@@ -41,8 +51,9 @@ function ColmunLayout({ layout }) {
           {Array.from({ length: layout?.numOfCol }).map((_, index) => (
             <div
               key={index}
-              className={`p-2 flex items-center border border-dashed justify-center 
-                ${index === dragOver?.index && dragOver?.columnId ? "bg-green-100" : "bg-slate-100"}`}
+              className={`p-2 flex items-center justify-center 
+                ${!layout?.[index]?.type && "bg-slate-100 border border-dashed"}
+                ${index === dragOver?.index && dragOver?.columnId && "bg-green-100"}`}
               onDragOver={(event) => onDragOverHandle(event, index)}
               onDrop={onDropHandle}
             >

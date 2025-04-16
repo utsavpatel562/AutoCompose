@@ -24,7 +24,7 @@ export default [
     url: "#",
     style: {
       textAlign: "center",
-      backgroundColor: "#007bff",
+      backgroundColor: "#111827",
       color: "#ffffff",
       padding: "10px",
       width: "auto",
@@ -32,6 +32,7 @@ export default [
       borderRadius: "0px",
       fontWeight: "normal",
       objectFit: "contain",
+      cursor: "pointer",
     },
     outerStyle: {
       display: "flex",
@@ -41,18 +42,17 @@ export default [
     },
   },
   {
-    icon: LuTextSelect,
+    icon: TextSelectionIcon,
     type: "Text",
     label: "Text",
-    textarea: "Sample Text",
+    content: "Sample Text",
     style: {
-      backgroundColor: "#fff",
+      backgroundColor: "",
       color: "#000000",
       padding: "10px",
       textAlign: "center",
       fontSize: "22px",
       fontWeight: "normal",
-      textTransform: "uppercase", //lowercase , capitilized
     },
     outerStyle: {
       backgroundColor: "#fff",
@@ -63,15 +63,15 @@ export default [
     icon: IoImageOutline,
     type: "Image",
     label: "Image",
-    imageUrl: "/logo.png",
+    content: "/photo.png",
     alt: "Image",
     url: "#",
     style: {
       backgroundColor: "#ffffff",
       padding: "10px",
-      height: "50%",
-      width: "70%",
-      margin: "0px",
+      height: "30%",
+      width: "30%",
+      margin: "auto",
       borderRadius: "0px",
     },
     outerStyle: {
