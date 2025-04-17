@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import ButtonComponent from "../customs/Element/ButtonComponent";
 import TextComponent from "../customs/Element/TextComponent";
 import ImageComponent from "../customs/Element/ImageComponent";
+import LogoComponent from "../customs/Element/LogoComponent";
+import DviderComponent from "../customs/Element/DviderComponent";
+import SocialMediaIcons from "../customs/Element/SocialMediaIcons";
 
 function ColmunLayout({ layout }) {
   const [dragOver, setDragOver] = useState();
@@ -35,7 +38,14 @@ function ColmunLayout({ layout }) {
       return <TextComponent {...element} />;
     } else if (element?.type == "Image") {
       return <ImageComponent {...element} />;
+    } else if (element?.type == "Logo") {
+      return <LogoComponent {...element} />;
+    } else if (element?.type == "Divider") {
+      return <DviderComponent {...element} />;
+    } else if (element?.type == "SocialIcons") {
+      return <SocialMediaIcons {...element} />;
     }
+
     return element?.type;
   };
   return (

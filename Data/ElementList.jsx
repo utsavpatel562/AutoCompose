@@ -24,7 +24,7 @@ export default [
     url: "#",
     style: {
       textAlign: "center",
-      backgroundColor: "#111827",
+      backgroundColor: "#5e74f6",
       color: "#ffffff",
       padding: "10px",
       width: "auto",
@@ -63,7 +63,7 @@ export default [
     icon: IoImageOutline,
     type: "Image",
     label: "Image",
-    content: "/photo.png",
+    content: "/picture.png",
     alt: "Image",
     url: "#",
     style: {
@@ -86,7 +86,7 @@ export default [
     icon: Frame,
     type: "Logo",
     label: "Logo",
-    imageUrl: "/logo.svg",
+    imageUrl: "/logo.png",
     alt: "logo",
     url: "#",
     style: {
@@ -142,15 +142,23 @@ export default [
     label: "Social Icons",
     socialIcons: [
       {
-        icon: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png",
+        icon: "/instagram.png",
         url: "",
       },
       {
-        icon: "https://cdn-icons-png.flaticon.com/128/5968/5968852.png",
+        icon: "/linkedin.png",
         url: "",
       },
       {
-        icon: "https://cdn-icons-png.flaticon.com/128/5968/5968756.png",
+        icon: "/youtube.png",
+        url: "",
+      },
+      {
+        icon: "/facebook.png",
+        url: "",
+      },
+      {
+        icon: "/twitter.png",
         url: "",
       },
     ],
@@ -169,8 +177,8 @@ export default [
       },
     ],
     style: {
-      width: 40,
-      height: 40,
+      width: 30,
+      height: 30,
     },
     outerStyle: {
       display: "flex",

@@ -1,8 +1,8 @@
 import React from "react";
 
-function ImageComponent({ style, content, outStyle }) {
+function ImageComponent({ style, content, outerStyle }) {
   return (
-    <div>
+    <div style={outerStyle}>
       <img src={content} alt="image" style={style} />
     </div>
   );
