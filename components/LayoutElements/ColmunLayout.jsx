@@ -1,5 +1,9 @@
 "use client";
-import { useDragElementLayout, useEmailTemplate } from "@/app/provider";
+import {
+  useDragElementLayout,
+  useEmailTemplate,
+  useSelectedElement,
+} from "@/app/provider";
 import React, { useState } from "react";
 import ButtonComponent from "../customs/Element/ButtonComponent";
 import TextComponent from "../customs/Element/TextComponent";
@@ -12,6 +16,7 @@ function ColmunLayout({ layout }) {
   const [dragOver, setDragOver] = useState();
   const { emailTemplate, setEmailTemplate } = useEmailTemplate();
   const { dragElementLayout, setDragElementLayout } = useDragElementLayout();
+  const { selectedElement, setSelectedElement } = useSelectedElement();
   const onDragOverHandle = (event, index) => {
     event.preventDefault();
     setDragOver({
@@ -66,6 +71,9 @@ function ColmunLayout({ layout }) {
                 ${index === dragOver?.index && dragOver?.columnId && "bg-green-100"}`}
               onDragOver={(event) => onDragOverHandle(event, index)}
               onDrop={onDropHandle}
+              onClick={() =>
+                setSelectedElement({ layout: layout, index: index })
+              }
             >
               {GetElementComponent(layout?.[index]) ?? "Drag Element Here"}
             </div>
