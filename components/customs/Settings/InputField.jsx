@@ -6,6 +6,7 @@ function InputField({ label, value, onHandleInputChange }) {
     <div>
       <label>{label}</label>
       <Input
+        className="rounded-sm my-2"
         value={value}
         onChange={(event) => onHandleInputChange(event.target.value)}
       />

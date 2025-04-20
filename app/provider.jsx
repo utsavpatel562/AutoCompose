@@ -26,7 +26,6 @@ function Provider({ children }) {
       setUserDetail(storage);
     }
   }, []);
-
   useEffect(() => {
     if (typeof window !== undefined) {
       localStorage.setItem("emailTemplate", JSON.stringify(emailTemplate));
