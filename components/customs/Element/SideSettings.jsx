@@ -2,8 +2,7 @@
 import { useSelectedElement } from "@/app/provider";
 import React, { useEffect, useState } from "react";
 import InputField from "../Settings/InputField";
-
-function Settings() {
+function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
   const [element, setElement] = useState();
   useEffect(() => {
@@ -12,6 +11,12 @@ function Settings() {
 
   const onHandleInputChange = (fieldName, value) => {
     console.log(fieldName, "value" + value);
+    // Copy of Current SelectedElement
+    const updatedData = { ...selectedElement };
+    // Update the Specific Field
+    updatedData.layout[selectedElement.index][fieldName] = value;
+    // Update Orginal SelectedElement
+    setSelectedElement(updatedData);
   };
 
   return (
@@ -28,4 +33,4 @@ function Settings() {
   );
 }
 
-export default Settings;
+export default SideSettings;

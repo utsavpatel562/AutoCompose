@@ -1,4 +1,4 @@
-import Settings from "@/components/customs/Element/Settings";
+import SideSettings from "@/components/customs/Element/SideSettings";
 import Canvas from "@/components/ui/Canvas";
 import EditorHeader from "@/components/ui/EditorHeader";
 import ElementSideBar from "@/components/ui/ElementSideBar";
@@ -20,7 +20,7 @@ function Editor() {
           </div>
           {/* Settings full width on mobile, 1 column on medium and up */}
           <div className="md:col-span-1">
-            <Settings />
+            <SideSettings />
           </div>
         </div>
       </div>
