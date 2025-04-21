@@ -36,13 +36,11 @@ function Provider({ children }) {
 
   useEffect(() => {
     if (selectedElement) {
-      let updatedEmailTemplates = [];
-      emailTemplate.forEach((item, index) => {
+      const updatedEmailTemplates = emailTemplate.map((item) => {
         if (item.id === selectedElement?.layout?.id) {
-          updatedEmailTemplates?.push(selectedElement?.layout);
-        } else {
-          updatedEmailTemplates(item);
+          return selectedElement.layout;
         }
+        return item;
       });
       setEmailTemplate(updatedEmailTemplates);
     }

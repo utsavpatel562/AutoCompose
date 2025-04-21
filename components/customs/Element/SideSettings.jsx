@@ -1,40 +1,26 @@
 "use client";
+
 import { useSelectedElement } from "@/app/provider";
 import React, { useEffect, useState } from "react";
 import InputField from "../Settings/InputField";
 import ColorPickerField from "../Settings/ColorPickerField";
+import { motion, AnimatePresence } from "framer-motion";
+
 function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
   const [element, setElement] = useState();
+
   useEffect(() => {
     setElement(selectedElement?.layout?.[selectedElement?.index]);
   }, [selectedElement]);
 
   const onHandleInputChange = (fieldName, value) => {
-    console.log(fieldName, "value" + value);
-    // Copy of Current SelectedElement
     let updatedData = { ...selectedElement };
-    // Update the Specific Field
     updatedData.layout[selectedElement.index][fieldName] = value;
-    // Update Orginal SelectedElement
     setSelectedElement(updatedData);
   };
 
   const onHandleStyleChange = (fieldName, fieldValue) => {
-    //Copy of Current SelectedElement
-    /*
-     * selectedElement: {
-     * index: 0,
-     * layout: {
-     * ...layout,
-     * [0] {
-     * style : {
-     * ...style
-     * }
-     * }
-     * }
-     * }
-     */
     let updateElement = {
       ...selectedElement,
       layout: {
@@ -51,25 +37,71 @@ function SideSettings() {
     setSelectedElement(updateElement);
   };
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="p-5">
+    <div className="p-5 flex-col gap-4">
       <h2 className="font-bold text-lg text-slate-700">Settings</h2>
-      {element?.content && (
-        <InputField
-          label={"Content"}
-          value={element?.content}
-          onHandleInputChange={(value) => onHandleInputChange("content", value)}
-        />
-      )}
-      {element?.style?.backgroundColor && (
-        <ColorPickerField
-          label="Background Color"
-          value={element?.style?.backgroundColor}
-          onHandleStyleChange={(value) =>
-            onHandleStyleChange("backgroundColor", value)
-          }
-        />
-      )}
+
+      <AnimatePresence>
+        {element?.content !== undefined && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+            transition={{ duration: 0.3 }}
+            key="content"
+          >
+            <InputField
+              label={"Content"}
+              value={element?.content}
+              onHandleInputChange={(value) =>
+                onHandleInputChange("content", value)
+              }
+            />
+          </motion.div>
+        )}
+
+        {element?.url !== undefined && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+            transition={{ duration: 0.3, delay: 0.05 }}
+            key="url"
+          >
+            <InputField
+              label={"URL / Link"}
+              value={element?.url}
+              onHandleInputChange={(value) => onHandleInputChange("url", value)}
+            />
+          </motion.div>
+        )}
+
+        {element?.style?.backgroundColor !== undefined && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            key="color"
+          >
+            <ColorPickerField
+              label="Background Color"
+              value={element?.style?.backgroundColor}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("backgroundColor", value)
+              }
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
