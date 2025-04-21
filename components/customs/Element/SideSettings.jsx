@@ -13,11 +13,42 @@ function SideSettings() {
   const onHandleInputChange = (fieldName, value) => {
     console.log(fieldName, "value" + value);
     // Copy of Current SelectedElement
-    const updatedData = { ...selectedElement };
+    let updatedData = { ...selectedElement };
     // Update the Specific Field
     updatedData.layout[selectedElement.index][fieldName] = value;
     // Update Orginal SelectedElement
     setSelectedElement(updatedData);
+  };
+
+  const onHandleStyleChange = (fieldName, fieldValue) => {
+    //Copy of Current SelectedElement
+    /*
+     * selectedElement: {
+     * index: 0,
+     * layout: {
+     * ...layout,
+     * [0] {
+     * style : {
+     * ...style
+     * }
+     * }
+     * }
+     * }
+     */
+    let updateElement = {
+      ...selectedElement,
+      layout: {
+        ...selectedElement?.layout,
+        [selectedElement?.index]: {
+          ...selectedElement?.layout[selectedElement?.index],
+          style: {
+            ...selectedElement?.layout[selectedElement?.index]?.style,
+            [fieldName]: [fieldValue],
+          },
+        },
+      },
+    };
+    setSelectedElement(updateElement);
   };
 
   return (
@@ -34,8 +65,8 @@ function SideSettings() {
         <ColorPickerField
           label="Background Color"
           value={element?.style?.backgroundColor}
-          onHandleInputChange={(value) =>
-            onHandleInputChange("backgroundColor", value)
+          onHandleStyleChange={(value) =>
+            onHandleStyleChange("backgroundColor", value)
           }
         />
       )}
