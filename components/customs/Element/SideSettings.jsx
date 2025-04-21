@@ -2,6 +2,7 @@
 import { useSelectedElement } from "@/app/provider";
 import React, { useEffect, useState } from "react";
 import InputField from "../Settings/InputField";
+import ColorPickerField from "../Settings/ColorPickerField";
 function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
   const [element, setElement] = useState();
@@ -27,6 +28,15 @@ function SideSettings() {
           label={"Content"}
           value={element?.content}
           onHandleInputChange={(value) => onHandleInputChange("content", value)}
+        />
+      )}
+      {element?.style?.backgroundColor && (
+        <ColorPickerField
+          label="Background Color"
+          value={element?.style?.backgroundColor}
+          onHandleInputChange={(value) =>
+            onHandleInputChange("backgroundColor", value)
+          }
         />
       )}
     </div>

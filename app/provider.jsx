@@ -7,6 +7,7 @@ import { ScreenSizeContext } from "@/context/ScreenSizeContext";
 import { DragDropLayoutElement } from "@/context/DragDropElement";
 import { EmailTemplateContext } from "@/context/EmailTemplateContext";
 import { SelectedElementContext } from "@/context/SelectedElementContext";
+
 function Provider({ children }) {
   const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL);
   const [userDetail, setUserDetail] = useState();
@@ -14,6 +15,7 @@ function Provider({ children }) {
   const [dragElementLayout, setDragElementLayout] = useState();
   const [emailTemplate, setEmailTemplate] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
+
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem("userDetail"));
     const emailTemplateStorage = JSON.parse(
@@ -31,6 +33,21 @@ function Provider({ children }) {
       localStorage.setItem("emailTemplate", JSON.stringify(emailTemplate));
     }
   }, [emailTemplate]);
+
+  useEffect(() => {
+    if (selectedElement) {
+      let updatedEmailTemplates = [];
+      emailTemplate.forEach((item, index) => {
+        if (item.id === selectedElement?.layout?.id) {
+          updatedEmailTemplates?.push(selectedElement?.layout);
+        } else {
+          updatedEmailTemplates(item);
+        }
+      });
+      setEmailTemplate(updatedEmailTemplates);
+    }
+  }, [selectedElement]);
+
   return (
     <ConvexProvider client={convex}>
       <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
