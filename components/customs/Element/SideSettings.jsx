@@ -90,13 +90,32 @@ function SideSettings() {
             exit="hidden"
             variants={fadeInUp}
             transition={{ duration: 0.3, delay: 0.1 }}
-            key="color"
+            key="background-color"
           >
             <ColorPickerField
               label="Background Color"
               value={element?.style?.backgroundColor}
               onHandleStyleChange={(value) =>
                 onHandleStyleChange("backgroundColor", value)
+              }
+            />
+          </motion.div>
+        )}
+
+        {element?.style?.color !== undefined && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+            transition={{ duration: 0.3, delay: 0.15 }}
+            key="text-color"
+          >
+            <ColorPickerField
+              label="Text Color"
+              value={element?.style?.color}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("color", value)
               }
             />
           </motion.div>

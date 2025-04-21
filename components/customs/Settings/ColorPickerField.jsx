@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { Check } from "lucide-react"; // optional icon, if you're using lucide
 
 function ColorPickerField({ label, value, onHandleStyleChange }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (typeof value === "string") {
+      navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    }
+  };
+
   return (
-    <div className="flex items-center gap-2 mt-2">
-      <label className="font-semibold">{label}</label>
-      <input
-        className="cursor-pointer w-8 h-8"
-        type="color"
-        value={value}
-        onChange={(e) => onHandleStyleChange(e.target.value)}
-      />
+    <div className="flex flex-col gap-2 mt-4">
+      {/* Label */}
+      <label className="text-sm font-semibold text-slate-700 tracking-wide">
+        {label}
+      </label>
+
+      {/* Color Input + Hex Badge */}
+      <div className="flex items-center gap-4">
+        {/* Color Picker Input */}
+        <input
+          type="color"
+          value={value}
+          onChange={(e) => onHandleStyleChange(e.target.value)}
+          className="w-full h-9 border-2 border-gray-300 shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+        />
+
+        {/* Hex Value & Copy */}
+      </div>
     </div>
   );
 }
