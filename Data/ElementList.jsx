@@ -4,6 +4,7 @@ import {
   Frame,
   Framer,
   Image,
+  LetterText,
   Link2,
   PanelTop,
   Projector,
@@ -59,10 +60,10 @@ export default [
     },
   },
   {
-    icon: LuTextSelect,
+    icon: LetterText,
     type: "TextArea",
-    label: "Text Area",
-    textarea: "This is a sample text area",
+    label: "Paragraph",
+    textarea: "This is a sample paragraph",
     style: {
       backgroundColor: "#fefefe",
       color: "#333333",

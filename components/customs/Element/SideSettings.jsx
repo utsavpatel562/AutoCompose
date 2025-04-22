@@ -8,6 +8,23 @@ import InputStyleField from "../Settings/InputStyleField";
 import SliderField from "../Settings/SliderField";
 import { motion, AnimatePresence } from "framer-motion";
 import TextAreaField from "../Settings/TextAreaField";
+import ToggleGroupField from "../Settings/ToggleGroupField";
+import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
+
+const TextAlignOptions = [
+  {
+    value: "left",
+    icon: AlignLeft,
+  },
+  {
+    value: "center",
+    icon: AlignCenter,
+  },
+  {
+    value: "right",
+    icon: AlignRight,
+  },
+];
 
 function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
@@ -76,7 +93,7 @@ function SideSettings() {
             variants={fadeInUp}
           >
             <TextAreaField
-              label="Text Area"
+              label="Paragraph"
               value={element.textarea}
               onHandleInputChange={(value) =>
                 onHandleInputChange("textarea", value)
@@ -205,6 +222,16 @@ function SideSettings() {
               }
             />
           </motion.div>
+        )}
+        {element?.style.textAlign && (
+          <ToggleGroupField
+            label={"Text Align"}
+            value={element?.style.textAlign}
+            options={TextAlignOptions}
+            onHandleStyleChange={(value) =>
+              onHandleStyleChange("textAlign", value)
+            }
+          />
         )}
       </AnimatePresence>
     </div>

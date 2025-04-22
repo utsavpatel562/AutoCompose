@@ -4,8 +4,9 @@ import React from "react";
 function TextAreaField({ label, value, onHandleInputChange }) {
   return (
     <div>
-      <label>{label}</label>
+      <label className="font-semibold">{label}</label>
       <Textarea
+        className="my-1"
         value={value}
         onChange={(e) => onHandleInputChange(e.target.value)}
       />

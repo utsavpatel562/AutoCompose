@@ -69,7 +69,7 @@ function ColmunLayout({ layout }) {
           {Array.from({ length: layout?.numOfCol }).map((_, index) => (
             <div
               key={index}
-              className={`p-2 flex items-center justify-center cursor-pointer
+              className={`p-0 flex items-center justify-center cursor-pointer
                 ${!layout?.[index]?.type && "bg-slate-100 border border-dashed"}
                 ${index === dragOver?.index && dragOver?.columnId && "bg-green-100"}
                 ${selectedElement?.layout?.id == layout?.id && selectedElement?.index == index && "border-2 border-violet-500 border-dashed"}`}
