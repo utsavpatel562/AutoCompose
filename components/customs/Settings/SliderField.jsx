@@ -7,7 +7,9 @@ function SliderField({ label, value, onHandleStyleChange, type = "px" }) {
   };
   return (
     <div>
-      <label className="font-semibold">{label}</label>
+      <label className="font-semibold">
+        {label} ({value})
+      </label>
       <Slider
         className="my-2 cursor-pointer"
         defaultValue={[FormattedValue(value)]}

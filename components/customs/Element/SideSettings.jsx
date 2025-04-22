@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import InputField from "../Settings/InputField";
 import ColorPickerField from "../Settings/ColorPickerField";
 import InputStyleField from "../Settings/InputStyleField";
-import { motion, AnimatePresence } from "framer-motion";
 import SliderField from "../Settings/SliderField";
+import { motion, AnimatePresence } from "framer-motion";
 
 function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
@@ -23,7 +23,7 @@ function SideSettings() {
   };
 
   const onHandleStyleChange = (fieldName, fieldValue) => {
-    const updateElement = {
+    const updated = {
       ...selectedElement,
       layout: {
         ...selectedElement.layout,
@@ -36,7 +36,7 @@ function SideSettings() {
         },
       },
     };
-    setSelectedElement(updateElement);
+    setSelectedElement(updated);
   };
 
   const fadeInUp = {
@@ -56,7 +56,6 @@ function SideSettings() {
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3 }}
           >
             <InputField
               label="Content"
@@ -75,7 +74,6 @@ function SideSettings() {
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.05 }}
           >
             <InputField
               label="Add Link"
@@ -87,12 +85,11 @@ function SideSettings() {
 
         {element?.style?.backgroundColor !== undefined && (
           <motion.div
-            key="background-color"
+            key="bg"
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.1 }}
           >
             <ColorPickerField
               label="Background Color"
@@ -111,7 +108,6 @@ function SideSettings() {
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.15 }}
           >
             <ColorPickerField
               label="Text Color"
@@ -130,7 +126,6 @@ function SideSettings() {
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.2 }}
           >
             <InputStyleField
               label="Font Size"
@@ -141,6 +136,7 @@ function SideSettings() {
             />
           </motion.div>
         )}
+
         {element?.style?.padding !== undefined && (
           <motion.div
             key="padding"
@@ -148,7 +144,6 @@ function SideSettings() {
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.2 }}
           >
             <InputStyleField
               label="Padding"
@@ -159,20 +154,39 @@ function SideSettings() {
             />
           </motion.div>
         )}
+
         {element?.style?.borderRadius !== undefined && (
           <motion.div
-            key="borderRadius"
+            key="border-radius"
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={fadeInUp}
-            transition={{ duration: 0.3, delay: 0.2 }}
           >
             <SliderField
               label="Border Radius"
               value={element.style.borderRadius}
               onHandleStyleChange={(value) =>
                 onHandleStyleChange("borderRadius", value)
+              }
+            />
+          </motion.div>
+        )}
+
+        {element?.style?.width !== undefined && (
+          <motion.div
+            key="width"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <SliderField
+              label="Width"
+              value={element.style.width}
+              type="%"
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("width", value)
               }
             />
           </motion.div>
