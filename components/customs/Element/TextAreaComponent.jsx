@@ -2,7 +2,7 @@ import React from "react";
 
 function TextAreaComponent({ style, textarea }) {
   return (
-    <div>
+    <div className="w-full">
       <h1 style={style}>{textarea}</h1>
     </div>
   );

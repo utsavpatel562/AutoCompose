@@ -1,5 +1,4 @@
 "use client";
-
 import { useSelectedElement } from "@/app/provider";
 import React, { useEffect, useState } from "react";
 import InputField from "../Settings/InputField";
@@ -134,6 +133,27 @@ function SideSettings() {
             />
           </motion.div>
         )}
+
+        {/* Wrapping the ToggleGroupField with motion.div */}
+        {element?.style.textAlign && (
+          <motion.div
+            key="text-align"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <ToggleGroupField
+              label={"Text Align"}
+              value={element?.style.textAlign}
+              options={TextAlignOptions}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("textAlign", value)
+              }
+            />
+          </motion.div>
+        )}
+
         {element?.style?.backgroundColor !== undefined && (
           <motion.div
             key="bg"
@@ -222,16 +242,6 @@ function SideSettings() {
               }
             />
           </motion.div>
-        )}
-        {element?.style.textAlign && (
-          <ToggleGroupField
-            label={"Text Align"}
-            value={element?.style.textAlign}
-            options={TextAlignOptions}
-            onHandleStyleChange={(value) =>
-              onHandleStyleChange("textAlign", value)
-            }
-          />
         )}
       </AnimatePresence>
     </div>
