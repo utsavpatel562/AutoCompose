@@ -11,6 +11,7 @@ import ImageComponent from "../customs/Element/ImageComponent";
 import LogoComponent from "../customs/Element/LogoComponent";
 import DviderComponent from "../customs/Element/DviderComponent";
 import SocialMediaIcons from "../customs/Element/SocialMediaIcons";
+import TextAreaComponent from "../customs/Element/TextAreaComponent";
 
 function ColmunLayout({ layout }) {
   const [dragOver, setDragOver] = useState();
@@ -49,6 +50,8 @@ function ColmunLayout({ layout }) {
       return <DviderComponent {...element} />;
     } else if (element?.type == "SocialIcons") {
       return <SocialMediaIcons {...element} />;
+    } else if (element?.type == "TextArea") {
+      return <TextAreaComponent {...element} />;
     }
 
     return element?.type;

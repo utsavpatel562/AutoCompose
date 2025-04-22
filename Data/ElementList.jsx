@@ -31,7 +31,6 @@ export default [
       fontSize: "16px",
       borderRadius: "0px",
       fontWeight: "normal",
-      objectFit: "contain",
       cursor: "pointer",
     },
     outerStyle: {
@@ -53,6 +52,24 @@ export default [
       textAlign: "center",
       fontSize: "22px",
       fontWeight: "normal",
+    },
+    outerStyle: {
+      backgroundColor: "#fff",
+      width: "100%",
+    },
+  },
+  {
+    icon: LuTextSelect,
+    type: "TextArea",
+    label: "Text Area",
+    textarea: "This is a sample text area",
+    style: {
+      backgroundColor: "#fefefe",
+      color: "#333333",
+      padding: "12px",
+      textAlign: "left",
+      fontSize: "16px",
+      borderRadius: "4px",
     },
     outerStyle: {
       backgroundColor: "#fff",

@@ -7,6 +7,7 @@ import ColorPickerField from "../Settings/ColorPickerField";
 import InputStyleField from "../Settings/InputStyleField";
 import SliderField from "../Settings/SliderField";
 import { motion, AnimatePresence } from "framer-motion";
+import TextAreaField from "../Settings/TextAreaField";
 
 function SideSettings() {
   const { selectedElement, setSelectedElement } = useSelectedElement();
@@ -66,7 +67,23 @@ function SideSettings() {
             />
           </motion.div>
         )}
-
+        {element?.textarea !== undefined && (
+          <motion.div
+            key="textarea"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <TextAreaField
+              label="Text Area"
+              value={element.textarea}
+              onHandleInputChange={(value) =>
+                onHandleInputChange("textarea", value)
+              }
+            />
+          </motion.div>
+        )}
         {element?.url !== undefined && (
           <motion.div
             key="url"
@@ -82,7 +99,24 @@ function SideSettings() {
             />
           </motion.div>
         )}
-
+        {element?.style?.width !== undefined && (
+          <motion.div
+            key="width"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <SliderField
+              label="Width"
+              value={element.style.width}
+              type="%"
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("width", value)
+              }
+            />
+          </motion.div>
+        )}
         {element?.style?.backgroundColor !== undefined && (
           <motion.div
             key="bg"
@@ -168,25 +202,6 @@ function SideSettings() {
               value={element.style.borderRadius}
               onHandleStyleChange={(value) =>
                 onHandleStyleChange("borderRadius", value)
-              }
-            />
-          </motion.div>
-        )}
-
-        {element?.style?.width !== undefined && (
-          <motion.div
-            key="width"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={fadeInUp}
-          >
-            <SliderField
-              label="Width"
-              value={element.style.width}
-              type="%"
-              onHandleStyleChange={(value) =>
-                onHandleStyleChange("width", value)
               }
             />
           </motion.div>
