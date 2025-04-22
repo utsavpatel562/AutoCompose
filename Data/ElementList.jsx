@@ -53,6 +53,7 @@ export default [
       textAlign: "center",
       fontSize: "22px",
       fontWeight: "normal",
+      textTransform: "uppercase",
     },
     outerStyle: {
       backgroundColor: "#fff",

@@ -8,7 +8,14 @@ import SliderField from "../Settings/SliderField";
 import { motion, AnimatePresence } from "framer-motion";
 import TextAreaField from "../Settings/TextAreaField";
 import ToggleGroupField from "../Settings/ToggleGroupField";
-import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
+import {
+  AArrowUp,
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
+  CaseLowerIcon,
+  CaseUpperIcon,
+} from "lucide-react";
 
 const TextAlignOptions = [
   {
@@ -22,6 +29,21 @@ const TextAlignOptions = [
   {
     value: "right",
     icon: AlignRight,
+  },
+];
+
+const TextTransformOptions = [
+  {
+    value: "uppercase",
+    icon: CaseUpperIcon,
+  },
+  {
+    value: "lowercase",
+    icon: CaseLowerIcon,
+  },
+  {
+    value: "capitalize",
+    icon: AArrowUp,
   },
 ];
 
@@ -203,6 +225,25 @@ function SideSettings() {
               value={element.style.fontSize}
               onHandleStyleChange={(value) =>
                 onHandleStyleChange("fontSize", value)
+              }
+            />
+          </motion.div>
+        )}
+
+        {element?.style.textTransform && (
+          <motion.div
+            key="textTransform"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <ToggleGroupField
+              label={"Text Transform"}
+              value={element?.style.textTransform}
+              options={TextTransformOptions}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("textTransform", value)
               }
             />
           </motion.div>
