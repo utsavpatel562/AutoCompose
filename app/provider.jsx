@@ -37,7 +37,7 @@ function Provider({ children }) {
   useEffect(() => {
     if (selectedElement) {
       const updatedEmailTemplates = emailTemplate.map((item) => {
-        if (item.id === selectedElement?.layout?.id) {
+        if (item?.id === selectedElement?.layout?.id) {
           return selectedElement.layout;
         }
         return item;

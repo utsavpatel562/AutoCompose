@@ -38,10 +38,12 @@ function HeroSection() {
                 ) : (
                   <SignInButton />
                 )}
-                <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
-                  Learn More
-                  <Box />
-                </Button>
+                <Link href="/#forLearnMore">
+                  <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
+                    Learn More
+                    <Box />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ import ToggleGroupField from "../Settings/ToggleGroupField";
 import {
   AArrowUp,
   AlignCenter,
+  AlignJustify,
   AlignLeft,
   AlignRight,
   CaseLowerIcon,
@@ -31,6 +32,10 @@ const TextAlignOptions = [
   {
     value: "right",
     icon: AlignRight,
+  },
+  {
+    value: "justify",
+    icon: AlignJustify,
   },
 ];
 

@@ -12,6 +12,8 @@ import LogoComponent from "../customs/Element/LogoComponent";
 import DviderComponent from "../customs/Element/DviderComponent";
 import SocialMediaIcons from "../customs/Element/SocialMediaIcons";
 import TextAreaComponent from "../customs/Element/TextAreaComponent";
+import { LuTrash2 } from "react-icons/lu";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 function ColmunLayout({ layout }) {
   const [dragOver, setDragOver] = useState();
@@ -29,7 +31,7 @@ function ColmunLayout({ layout }) {
     const index = dragOver.index;
     setEmailTemplate((prevItem) =>
       prevItem?.map((col) =>
-        col.id === layout?.id
+        col?.id === layout?.id
           ? { ...col, [index]: dragElementLayout?.dragElement }
           : col
       )
@@ -53,18 +55,55 @@ function ColmunLayout({ layout }) {
     } else if (element?.type == "TextArea") {
       return <TextAreaComponent {...element} />;
     }
-
     return element?.type;
+  };
+  const deleteLayout = (layoutId) => {
+    const updateEmailTemplate = emailTemplate?.filter(
+      (item) => item?.id != layoutId
+    );
+    setEmailTemplate(updateEmailTemplate);
+    setSelectedElement(null);
+  };
+  // Logic for moveItemup and moveItemDown
+  const moveItemUp = (layoutId) => {
+    const index = emailTemplate.findIndex((item) => item?.id === layoutId);
+    if (index > 0) {
+      setEmailTemplate((prevItem) => {
+        const updatedItems = [...prevItem];
+        // Swap the current item const temp = updatedItems[index]; updatedItems[index] = updatedItems[index - 1]; updatedItems[index - 1] = temp;
+
+        [updatedItems[index], updatedItems[index - 1]] = [
+          updatedItems[index - 1],
+          updatedItems[index],
+        ];
+        return updatedItems;
+      });
+    }
+  };
+  const moveItemDown = (layoutId) => {
+    const index = emailTemplate.findIndex((item) => item?.id === layoutId);
+    if (index > 0) {
+      setEmailTemplate((prevItem) => {
+        const updatedItems = [...prevItem];
+        // Swap the current item const temp = updatedItems[index]; updatedItems[index] = updatedItems[index + 1]; updatedItems[index + 1] = temp;
+        [updatedItems[index], updatedItems[index + 1]] = [
+          updatedItems[index + 1],
+          updatedItems[index],
+        ];
+        return updatedItems;
+      });
+    }
   };
   return (
     <>
-      <div>
+      <div className="relative">
         <div
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${layout?.numOfCol},1fr)`,
             gap: "0px",
           }}
+          className={`${selectedElement?.layout?.id == layout?.id && "border border-dashed border-violet-600"}`}
         >
           {Array.from({ length: layout?.numOfCol }).map((_, index) => (
             <div
@@ -82,6 +121,28 @@ function ColmunLayout({ layout }) {
               {GetElementComponent(layout?.[index]) ?? "Drag Element Here"}
             </div>
           ))}
+          {selectedElement?.layout?.id == layout?.id && (
+            <div className="absolute -right-10 flex gap-2 flex-col">
+              <div
+                className="bg-red-50 cursor-pointer hover:scale-105 transition-all hover:shadow-md p-2 rounded-full"
+                onClick={() => deleteLayout(layout?.id)}
+              >
+                <LuTrash2 className="h-4 w-4 text-red-500 " />
+              </div>
+              <div
+                className="bg-indigo-100 cursor-pointer hover:scale-105 transition-all hover:shadow-md p-2 rounded-full"
+                onClick={() => moveItemUp(layout.id)}
+              >
+                <ArrowUp className="h-4 w-4 text-indigo-500 " />
+              </div>
+              <div
+                className="bg-indigo-100 cursor-pointer hover:scale-105 transition-all hover:shadow-md p-2 rounded-full"
+                onClick={() => moveItemDown(layout.id)}
+              >
+                <ArrowDown className="h-4 w-4 text-indigo-500 " />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

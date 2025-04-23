@@ -9,7 +9,7 @@ import { Safari } from "../magicui/safari";
 import { useUserDetail } from "@/app/provider";
 import Link from "next/link";
 import { Button } from "./button";
-import { PanelsTopLeft } from "lucide-react";
+import { PanelsTopLeft, UsersRound } from "lucide-react";
 function FeaturesSec() {
   const { userDetail, setUserDetail } = useUserDetail();
   return (
@@ -28,7 +28,10 @@ function FeaturesSec() {
           <div className="blur-[106px] h-56 bg-gradient-to-br  to-purple-400 from-blue-700"></div>
           <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400  to-indigo-600"></div>
         </div>
-        <div className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6">
+        <div
+          className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6"
+          id="forLearnMore"
+        >
           <div className="text-center mt-12 text-gray-100">
             <p className="text-slate-500" id="TopFeatures">
               We have built many products and some of them are below
@@ -193,7 +196,11 @@ function FeaturesSec() {
                   </Button>
                 </Link>
               ) : (
-                <Button>Register Today</Button>
+                <Link href="/">
+                  <Button className="flex items-center gap-2 justify-center m-auto cursor-pointer p-6 md:pr-10 md:w-[16%] md:pl-10 border-2 border-slate-600 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-900 rounded-full shadow-lg hover:shadow-none">
+                    Regsiter Today <UsersRound />
+                  </Button>
+                </Link>
               )}
             </div>
           </div>
