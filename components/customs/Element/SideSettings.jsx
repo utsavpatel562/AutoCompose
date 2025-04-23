@@ -80,6 +80,23 @@ function SideSettings() {
     setSelectedElement(updated);
   };
 
+  const onHandleOuterStyleChange = (fieldName, fieldValue) => {
+    const updated = {
+      ...selectedElement,
+      layout: {
+        ...selectedElement.layout,
+        [selectedElement.index]: {
+          ...selectedElement.layout[selectedElement.index],
+          outerStyle: {
+            ...selectedElement.layout[selectedElement.index]?.outerStyle,
+            [fieldName]: fieldValue,
+          },
+        },
+      },
+    };
+    setSelectedElement(updated);
+  };
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -285,6 +302,23 @@ function SideSettings() {
             />
           </motion.div>
         )}
+        {element?.style?.margin !== undefined && (
+          <motion.div
+            key="margin"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <InputStyleField
+              label="Margin"
+              value={element.style.margin}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("margin", value)
+              }
+            />
+          </motion.div>
+        )}
 
         {element?.style?.borderRadius !== undefined && (
           <motion.div
@@ -321,6 +355,45 @@ function SideSettings() {
             />
           </motion.div>
         )}
+        <div className="">
+          {element?.outerStyle?.backgroundColor !== undefined && (
+            <motion.div
+              key="backgroundColor"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={fadeInUp}
+            >
+              <h2 className="font-semibold">Outer Style</h2>
+              <ColorPickerField
+                label="Background Color"
+                value={element.outerStyle.backgroundColor}
+                onHandleStyleChange={(value) =>
+                  onHandleOuterStyleChange("backgroundColor", value)
+                }
+              />
+            </motion.div>
+          )}
+          {element?.outerStyle?.justifyContent !== undefined && (
+            <motion.div
+              key="justify-content"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={fadeInUp}
+            >
+              <ToggleGroupField
+                className="mt-3"
+                label="Align"
+                options={TextAlignOptions}
+                value={element.outerStyle.justifyContent}
+                onHandleStyleChange={(value) =>
+                  onHandleOuterStyleChange("justifyContent", value)
+                }
+              />
+            </motion.div>
+          )}
+        </div>
       </AnimatePresence>
     </div>
   );

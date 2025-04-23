@@ -1,9 +1,11 @@
 import React from "react";
 
-function ImageComponent({ style, content, outerStyle }) {
+function ImageComponent({ imageUrl, style, outerStyle }) {
+  if (!imageUrl || imageUrl.trim() === "") return null;
+
   return (
     <div style={outerStyle}>
-      <img src={content} alt="image" style={style} />
+      <img src={imageUrl} alt="image" style={style} />
     </div>
   );
 }

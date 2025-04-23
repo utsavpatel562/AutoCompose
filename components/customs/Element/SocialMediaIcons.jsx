@@ -1,12 +1,12 @@
 import React from "react";
 
-function SocialMediaIcons({ style, socialIcons, outerStyle }) {
+function SocialMediaIcons({ style, socialIcons = [], outerStyle }) {
   return (
-    <div className="flex items-center gap-3">
-      {socialIcons?.map((iconObj, index) => (
+    <div className="flex items-center gap-3" style={outerStyle}>
+      {socialIcons.map((iconObj, index) => (
         <a
           key={index}
-          href={iconObj.url}
+          href={iconObj.url || "#"}
           target="_blank"
           rel="noopener noreferrer"
         >

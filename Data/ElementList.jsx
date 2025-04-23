@@ -33,6 +33,8 @@ export default [
       borderRadius: "0px",
       fontWeight: "normal",
       cursor: "pointer",
+      margin: "0px",
+      objectFit: "contain",
     },
     outerStyle: {
       display: "flex",
@@ -54,6 +56,7 @@ export default [
       fontSize: "22px",
       fontWeight: "normal",
       textTransform: "uppercase",
+      margin: "0px",
     },
     outerStyle: {
       backgroundColor: "#fff",
@@ -72,6 +75,7 @@ export default [
       textAlign: "left",
       fontSize: "16px",
       borderRadius: "4px",
+      margin: "0px",
     },
     outerStyle: {
       backgroundColor: "#fff",
@@ -82,7 +86,7 @@ export default [
     icon: IoImageOutline,
     type: "Image",
     label: "Image",
-    content: "/picture.png",
+    imageUrl: "/picture.png",
     alt: "Image",
     url: "#",
     style: {
@@ -90,7 +94,7 @@ export default [
       padding: "10px",
       height: "30%",
       width: "30%",
-      margin: "auto",
+      margin: "0px",
       borderRadius: "0px",
     },
     outerStyle: {
@@ -113,6 +117,7 @@ export default [
       padding: "10px",
       height: "30%",
       width: "30%",
+      margin: "0px",
     },
     outerStyle: {
       display: "flex",
@@ -153,55 +158,6 @@ export default [
       color: "#000000",
       padding: "10px",
       width: "100%",
-    },
-  },
-  {
-    type: "SocialIcons",
-    icon: Twitter,
-    label: "Social Icons",
-    socialIcons: [
-      {
-        icon: "/instagram.png",
-        url: "",
-      },
-      {
-        icon: "/linkedin.png",
-        url: "",
-      },
-      {
-        icon: "/youtube.png",
-        url: "",
-      },
-      {
-        icon: "/facebook.png",
-        url: "",
-      },
-      {
-        icon: "/twitter.png",
-        url: "",
-      },
-    ],
-    options: [
-      {
-        icon: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png",
-        url: "",
-      },
-      {
-        icon: "https://cdn-icons-png.flaticon.com/128/5968/5968852.png",
-        url: "",
-      },
-      {
-        icon: "https://cdn-icons-png.flaticon.com/128/5968/5968756.png",
-        url: "",
-      },
-    ],
-    style: {
-      width: 30,
-      height: 30,
-    },
-    outerStyle: {
-      display: "flex",
-      gap: 15,
     },
   },
 ];
