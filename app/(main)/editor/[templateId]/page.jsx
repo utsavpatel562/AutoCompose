@@ -6,25 +6,27 @@ import React from "react";
 
 function Editor() {
   return (
-    <>
-      <div>
-        <EditorHeader />
-        <div className="grid grid-cols-1 md:grid-cols-5">
-          {/* Sidebar full width on mobile, 1 column on medium and up */}
-          <div className="md:col-span-1">
-            <ElementSideBar />
-          </div>
-          {/* Canvas center section full width on mobile, 3 columns on medium and up */}
-          <div className="md:col-span-3 bg-slate-100">
-            <Canvas />
-          </div>
-          {/* Settings full width on mobile, 1 column on medium and up */}
-          <div className="md:col-span-1">
-            <SideSettings />
-          </div>
+    <div className="flex flex-col h-screen">
+      {" "}
+      {/* Set full screen height */}
+      <EditorHeader />
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+        {/* Sidebar */}
+        <div className="md:col-span-1 overflow-y-auto">
+          <ElementSideBar />
+        </div>
+
+        {/* Canvas */}
+        <div className="md:col-span-3 bg-slate-100 overflow-y-auto">
+          <Canvas />
+        </div>
+
+        {/* Settings */}
+        <div className="md:col-span-1 overflow-y-auto">
+          <SideSettings />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

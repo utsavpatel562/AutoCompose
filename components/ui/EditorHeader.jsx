@@ -7,20 +7,23 @@ import { MdSaveAlt, MdOpenInNew } from "react-icons/md";
 import { IoDesktopOutline } from "react-icons/io5";
 import { FaMobileScreen } from "react-icons/fa6";
 import { useScreenSize } from "@/app/provider";
+import Link from "next/link";
 function EditorHeader() {
   const { screenSize, setScreenSize } = useScreenSize();
   return (
     <>
       <div className="p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
         {/* Logo hidden on mobile, visible on sm and up */}
-        <Image
-          src={"/logo.png"}
-          width={180}
-          height={180}
-          alt="logo"
-          className="hidden sm:block w-40 h-auto"
-        />
-        <div className="flex items-center gap-2">
+        <Link href="/">
+          <Image
+            src={"/logo.png"}
+            width={180}
+            height={180}
+            alt="logo"
+            className="hidden sm:block w-40 h-auto"
+          />
+        </Link>
+        <div className="flex items-center gap-2 justify-center m-auto">
           <Button
             variant="ghost"
             onClick={() => setScreenSize("desktop")}
@@ -38,7 +41,7 @@ function EditorHeader() {
             Mobile
           </Button>
         </div>
-        <div className="flex items-center flex-wrap gap-2 sm:justify-end">
+        <div className="flex items-center m-auto md:m-0 flex-wrap gap-2 sm:justify-end">
           <Button
             variant="ghost"
             className="cursor-pointer bg-violet-50 text-violet-500 hover:bg-violet-100 hover:text-violet-500"

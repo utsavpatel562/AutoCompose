@@ -26,9 +26,8 @@ function ColorPickerField({ label, value, onHandleStyleChange }) {
           type="color"
           value={value}
           onChange={(e) => onHandleStyleChange(e.target.value)}
-          className="w-full h-9 border-2 border-gray-300 shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+          className="h-10 w-full cursor-pointer transition-transform duration-200 hover:scale-105"
         />
-
         {/* Hex Value & Copy */}
       </div>
     </div>

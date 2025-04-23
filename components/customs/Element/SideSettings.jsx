@@ -16,6 +16,8 @@ import {
   CaseLowerIcon,
   CaseUpperIcon,
 } from "lucide-react";
+import DropDownField from "../Settings/DropDownField";
+import ImagePreview from "../Settings/ImagePreview";
 
 const TextAlignOptions = [
   {
@@ -88,6 +90,23 @@ function SideSettings() {
       <h2 className="font-bold text-lg text-slate-700">Settings</h2>
 
       <AnimatePresence>
+        {element?.imageUrl !== undefined && (
+          <motion.div
+            key="imageUrl"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <ImagePreview
+              label="Image Preview"
+              value={element.imageUrl}
+              onHandleInputChange={(value) =>
+                onHandleInputChange("imageUrl", value)
+              }
+            />
+          </motion.div>
+        )}
         {element?.content !== undefined && (
           <motion.div
             key="content"
@@ -280,6 +299,24 @@ function SideSettings() {
               value={element.style.borderRadius}
               onHandleStyleChange={(value) =>
                 onHandleStyleChange("borderRadius", value)
+              }
+            />
+          </motion.div>
+        )}
+        {element?.style?.fontWeight !== undefined && (
+          <motion.div
+            key="fontWeight"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            <DropDownField
+              options={["Normal", "Bold"]}
+              label="Font Weight"
+              value={element.style.fontWeight}
+              onHandleStyleChange={(value) =>
+                onHandleStyleChange("fontWeight", value)
               }
             />
           </motion.div>
