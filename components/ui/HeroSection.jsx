@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import { Button } from "./button";
-import { Box, Sparkles } from "lucide-react";
+import { Box, PanelsTopLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
 import SignInButton from "../customs/SignInButton";
+import { useUserDetail } from "@/app/provider";
 
 function HeroSection() {
+  const { userDetail, setUserDetail } = useUserDetail();
   return (
     <>
       <div>
@@ -27,7 +29,15 @@ function HeroSection() {
                 productivity.
               </p>
               <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0 py-11">
-                <SignInButton />
+                {userDetail?.email ? (
+                  <a href="/dashboard">
+                    <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-900 rounded-sm shadow-lg hover:shadow-none">
+                      Dashboard <PanelsTopLeft />
+                    </Button>
+                  </a>
+                ) : (
+                  <SignInButton />
+                )}
                 <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
                   Learn More
                   <Box />

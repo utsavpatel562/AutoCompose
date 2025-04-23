@@ -383,7 +383,7 @@ function SideSettings() {
               variants={fadeInUp}
             >
               <ToggleGroupField
-                className="mt-3"
+                className="mt-2"
                 label="Align"
                 options={TextAlignOptions}
                 value={element.outerStyle.justifyContent}

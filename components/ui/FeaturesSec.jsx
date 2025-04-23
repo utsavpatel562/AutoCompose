@@ -6,7 +6,12 @@ import { MdOutlineAutoAwesome } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdMailOutline } from "react-icons/md";
 import { Safari } from "../magicui/safari";
+import { useUserDetail } from "@/app/provider";
+import Link from "next/link";
+import { Button } from "./button";
+import { PanelsTopLeft } from "lucide-react";
 function FeaturesSec() {
+  const { userDetail, setUserDetail } = useUserDetail();
   return (
     <>
       <div
@@ -181,13 +186,15 @@ function FeaturesSec() {
               </p>
             </div>
             <div className="mt-4">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 py-3 px-8 text-white font-medium bg-gray-800 duration-150 hover:bg-transparent hover:text-gray-800 border-2 border-gray-800 active:bg-gray-900 rounded-sm shadow-md hover:shadow-none"
-              >
-                Register Today
-                <MdMailOutline className="w-5 h-5" />
-              </a>
+              {userDetail?.email ? (
+                <Link href="/dashboard">
+                  <Button className="flex items-center gap-2 justify-center m-auto cursor-pointer p-6 md:pr-10 md:w-[16%] md:pl-10 border-2 border-slate-600 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-900 rounded-full shadow-lg hover:shadow-none">
+                    Dashboard <PanelsTopLeft />
+                  </Button>
+                </Link>
+              ) : (
+                <Button>Register Today</Button>
+              )}
             </div>
           </div>
         </section>
