@@ -4,14 +4,17 @@ import {
   useEmailTemplate,
   useScreenSize,
 } from "@/app/provider";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiLayout } from "react-icons/fi";
 import ColmunLayout from "../LayoutElements/ColmunLayout";
-function Canvas() {
+import ViewHTMLDialog from "./ViewHTMLDialog";
+function Canvas({ viewHTMLCode, closeDialog }) {
+  const htmlRef = useRef();
   const { screenSize, setScreenSize } = useScreenSize();
   const { dragElementLayout, setDragElementLayout } = useDragElementLayout();
   const { emailTemplate, setEmailTemplate } = useEmailTemplate();
   const [dragOver, setDragOver] = useState(false);
+  const [htmlCode, setHTMLCode] = useState();
   const onDragOver = (e) => {
     e.preventDefault();
     setDragOver(true);
@@ -26,6 +29,20 @@ function Canvas() {
   const getLayoutComponent = (layout) => {
     if (layout?.type == "column") return <ColmunLayout layout={layout} />;
   };
+
+  // To view HTML Code Generated
+
+  useEffect(() => {
+    viewHTMLCode && GetHTMLCode();
+  }, [viewHTMLCode]);
+
+  const GetHTMLCode = () => {
+    if (htmlRef.current) {
+      const htmlContent = htmlRef.current.innerHTML;
+      setHTMLCode(htmlContent);
+    }
+  };
+
   return (
     <>
       <div className="mt-20 flex justify-center">
@@ -35,6 +52,7 @@ function Canvas() {
           } ${dragOver ? "bg-violet-50 p-4" : "bg-white p-6"}`}
           onDragOver={onDragOver}
           onDrop={onDropHandle}
+          ref={htmlRef}
         >
           {emailTemplate?.length > 0 ? (
             emailTemplate?.map((layout, index) => (
@@ -47,6 +65,11 @@ function Canvas() {
             </h2>
           )}
         </div>
+        <ViewHTMLDialog
+          openDialog={viewHTMLCode}
+          htmlCode={htmlCode}
+          closeDialog={closeDialog}
+        />
       </div>
     </>
   );

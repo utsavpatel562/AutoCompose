@@ -8,8 +8,9 @@ import { IoDesktopOutline } from "react-icons/io5";
 import { FaMobileScreen } from "react-icons/fa6";
 import { useScreenSize } from "@/app/provider";
 import Link from "next/link";
-function EditorHeader() {
+function EditorHeader({ viewHTMLCode }) {
   const { screenSize, setScreenSize } = useScreenSize();
+
   return (
     <>
       <div className="p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
@@ -45,6 +46,7 @@ function EditorHeader() {
           <Button
             variant="ghost"
             className="cursor-pointer bg-violet-50 text-violet-500 hover:bg-violet-100 hover:text-violet-500"
+            onClick={() => viewHTMLCode(true)}
           >
             <Code />
           </Button>
