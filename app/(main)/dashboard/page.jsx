@@ -2,7 +2,6 @@
 import { useUserDetail } from "@/app/provider";
 import { Button } from "@/components/ui/button";
 import EmailTemplateList from "@/components/ui/EmailTemplateList";
-import Header from "@/components/ui/Header";
 import React from "react";
 
 function Dashboard() {
@@ -11,7 +10,7 @@ function Dashboard() {
   return (
     <>
       <div>
-        <Header />
+        {/*<Header />*/}
         <div className="p-4 sm:p-6 md:px-10 lg:px-20 xl:px-32 mt-16">
           <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-4">
             <h2 className="font-bold text-2xl sm:text-3xl text-slate-800">
