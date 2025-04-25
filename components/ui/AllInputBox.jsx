@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Textarea } from "./textarea";
 import { Button } from "./button";
-import { RiAiGenerate2 } from "react-icons/ri";
 import Prompt from "@/Data/Prompt";
 import axios from "axios";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { v4 as uuidv4 } from "uuid";
 import { useUserDetail } from "@/app/provider";
+import { useRouter } from "next/navigation";
 function AllInputBox() {
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
   const SaveTemplate = useMutation(api.emailTemplate.SaveTemplate);
   const { userDetail, setUserDetail } = useUserDetail();
+  const router = useRouter();
 
   const OnGenerate = async () => {
     const PROMPT = Prompt.EMAIL_PROMPT + "\n-" + userInput;
@@ -30,6 +31,9 @@ function AllInputBox() {
         email: userDetail?.email, // Ensure this is not undefined
       });
       console.log("Template saved successfully!");
+      // Navigate User to editor Screen/Page
+      router.push("/editor/" + tid);
+
       setLoading(false);
     } catch (e) {
       console.error("API Error:", e);
@@ -57,26 +61,29 @@ function AllInputBox() {
         disabled={userInput?.length == 0 || loading}
       >
         {loading ? (
-          <svg
-            className="animate-spin h-6 w-6 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-            ></path>
-          </svg>
+          <span className="flex items-center gap-2">
+            Please Wait
+            <svg
+              className="animate-spin h-7 w-7 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              ></path>
+            </svg>
+          </span>
         ) : (
           <>Generate</>
         )}
