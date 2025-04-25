@@ -3,7 +3,7 @@ import { GenerateEmailTemplateAiModel } from "@/config/AIModel";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const { prompt, userEmail, tId } = await req.json();
+  const { prompt } = await req.json();
 
   try {
     const result = await GenerateEmailTemplateAiModel.sendMessage(prompt);
