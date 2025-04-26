@@ -29,10 +29,10 @@ function Editor() {
     });
 
     if (result?.design) {
-      const parsedTemplate = JSON.parse(result.design);
-      setEmailTemplate(parsedTemplate);
+      setEmailTemplate(result.design); // fixed!
     }
   };
+
   return (
     <div className="flex flex-col h-screen">
       {" "}

@@ -5,7 +5,8 @@ export const SaveTemplate = mutation ( {
     args: {
         tid: v.string(),
         design: v.any(),
-        email: v.string()
+        email: v.string(),
+        description: v.string(),
     },
     handler:async(ctx, args)=> {
         try {
@@ -13,6 +14,7 @@ export const SaveTemplate = mutation ( {
                 tid: args.tid,
                 design: args.design,
                 email: args.email,
+                description: args.description,
             })
             return result;
         }
@@ -37,4 +39,35 @@ export const GetTemplateDesign  = query ({
     return {}
 }
 },
+})
+export const UpdateTemplateDesign=mutation({
+    args: {
+        tid: v.string(),
+        design: v.any(), // Email Template design
+    },
+    handler: async(ctx, args)=> {
+        // Get DocID
+        const result  = await ctx.db.query('emailTemplates')
+        .filter(q=>q.eq(q.field('tid'),args.tid))
+        .collect();
+
+        const docId = result[0]._id;
+
+        // Update the DocID
+        await ctx.db.patch(docId, {
+            design: args.design
+        })
+    }
+})
+export const GetAllUserTemplate=query({
+    args:{
+        email: v.string()
+    },
+    handler: async(ctx, args) => {
+        const result = await ctx.db.query('emailTemplates')
+        .filter(q=>q.eq(q.field('email'), args.email))
+        .collect();
+
+        return result;
+    }
 })

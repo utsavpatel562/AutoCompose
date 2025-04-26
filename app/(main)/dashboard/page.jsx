@@ -2,6 +2,7 @@
 import { useUserDetail } from "@/app/provider";
 import { Button } from "@/components/ui/button";
 import EmailTemplateList from "@/components/ui/EmailTemplateList";
+import Link from "next/link";
 import React from "react";
 
 function Dashboard() {
@@ -16,9 +17,11 @@ function Dashboard() {
             <h2 className="font-bold text-2xl sm:text-3xl text-slate-800">
               Hello, <span className="text-violet-600">{userDetail?.name}</span>
             </h2>
-            <Button className="cursor-pointer rounded-sm bg-violet-600 hover:bg-violet-700">
-              + Create New Email Template
-            </Button>
+            <Link href={"/dashboard/create"}>
+              <Button className="cursor-pointer rounded-sm bg-violet-600 hover:bg-violet-700">
+                + Create New Email Template
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-8">

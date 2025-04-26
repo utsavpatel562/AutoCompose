@@ -29,6 +29,7 @@ function AllInputBox() {
         tid: tid,
         design: JSON.stringify(result.data), // Make sure it's a string
         email: userDetail?.email, // Ensure this is not undefined
+        description: userInput,
       });
       console.log("Template saved successfully!");
       // Navigate User to editor Screen/Page

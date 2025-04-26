@@ -1,3 +1,5 @@
+// DO NOT TRY TO CHANGE THIS FILE - OTHERWISE AI WILL NOT WORK PROPERLY
+
 import { GenerateEmailTemplateAiModel } from "@/config/AIModel";
 import { NextResponse } from "next/server";
 
@@ -8,13 +10,13 @@ export async function POST(req) {
     const result = await GenerateEmailTemplateAiModel.sendMessage(prompt);
 
     const aiRespText = await result.response.text(); // Get the string
-    const aiRespJson = JSON.parse(aiRespText); // ✅ Properly parse into JSON (which is your array)
+    const aiRespJson = JSON.parse(aiRespText); // Properly parse into JSON (which is your array)
 
     console.log("AI Response:", aiRespJson);
 
     // Save aiRespJson directly into the database (this is already an array, no { aiResp: [...] } wrapping)
 
-    return NextResponse.json(aiRespJson); // ✅ Directly return the array
+    return NextResponse.json(aiRespJson); // Directly return the array
   } catch (e) {
     console.error("API Error:", e);
     return NextResponse.json(
