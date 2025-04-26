@@ -10,7 +10,7 @@ export default defineSchema({
     }),
     emailTemplates: defineTable ({
         tid: v.string(),
-        design: v.any(), // Save JSON Data
+        design: v.string(), // Save JSON Data
         description: v.any(),
         email: v.string(),
     })

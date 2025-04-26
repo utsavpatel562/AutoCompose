@@ -6,6 +6,7 @@ import { Code } from "lucide-react";
 import { MdSaveAlt, MdOpenInNew } from "react-icons/md";
 import { FaRegSave } from "react-icons/fa";
 import { IoDesktopOutline } from "react-icons/io5";
+import { MdSpaceDashboard } from "react-icons/md";
 import { FaMobileScreen } from "react-icons/fa6";
 import { useEmailTemplate, useScreenSize } from "@/app/provider";
 import Link from "next/link";
@@ -26,7 +27,7 @@ function EditorHeader({ viewHTMLCode }) {
   const onSaveTemplate = async () => {
     await updatedEmailTemplate({
       tid: templateId,
-      design: emailTemplate,
+      design: JSON.stringify(emailTemplate),
     });
     setIsSaved(true); // <-- set saved true after save
     setTimeout(() => setIsSaved(false), 2000); // <-- hide "saved" after 2 seconds
@@ -70,13 +71,15 @@ function EditorHeader({ viewHTMLCode }) {
           >
             <Code />
           </Button>
-          <Button
-            className="flex items-center border border-slate-300 rounded-sm cursor-pointer gap-1"
-            variant="outline"
-          >
-            Send Test Email
-            <MdOpenInNew />
-          </Button>
+          <Link href="/dashboard">
+            <Button
+              className="flex items-center border border-slate-300 rounded-sm cursor-pointer gap-1"
+              variant="outline"
+            >
+              Dashboard
+              <MdSpaceDashboard />
+            </Button>
+          </Link>
           <div className="flex items-center gap-2">
             <Button
               onClick={onSaveTemplate}

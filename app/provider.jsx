@@ -17,15 +17,27 @@ function Provider({ children }) {
   const [selectedElement, setSelectedElement] = useState();
 
   useEffect(() => {
-    const storage = JSON.parse(localStorage.getItem("userDetail"));
-    const emailTemplateStorage = JSON.parse(
-      localStorage.getItem("emailTemplate") ?? {}
-    );
-    setEmailTemplate(emailTemplateStorage ?? []);
-    if (!storage?.email || !storage) {
-      // Direct to Home Screen
-    } else {
-      setUserDetail(storage);
+    const userDetailStorage = localStorage.getItem("userDetail");
+    const emailTemplateStorage = localStorage.getItem("emailTemplate");
+
+    try {
+      const storage = userDetailStorage ? JSON.parse(userDetailStorage) : null;
+      const parsedEmailTemplate = emailTemplateStorage
+        ? JSON.parse(emailTemplateStorage)
+        : [];
+
+      setEmailTemplate(parsedEmailTemplate ?? []);
+
+      if (!storage?.email || !storage) {
+        // Direct to Home Screen
+      } else {
+        setUserDetail(storage);
+      }
+    } catch (error) {
+      console.error("Error parsing localStorage:", error);
+      // You could also clear the broken storage if needed
+      localStorage.removeItem("userDetail");
+      localStorage.removeItem("emailTemplate");
     }
   }, []);
   useEffect(() => {

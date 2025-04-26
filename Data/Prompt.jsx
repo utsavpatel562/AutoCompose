@@ -9,6 +9,7 @@ const AIPrompt = {
 - You can generate Email template based on following schema
 - Write Meaning full text content with Emoji icons if needed
 - For logo add image as '/logo.png' for image placeholder add '/picture.png'
+- For url add '#'
 - Give response in JSON format only (Return schema only)
 - Generate the Email template for ""`,
 };

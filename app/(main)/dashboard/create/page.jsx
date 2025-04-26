@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BsStars } from "react-icons/bs";
 import { HiMiniWindow } from "react-icons/hi2";
+import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import AllInputBox from "@/components/ui/AllInputBox";
-
 function CreateNew() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -67,7 +67,9 @@ function CreateNew() {
           </TabsContent>
 
           <TabsContent value="SCRATCH" className="mt-6 text-gray-600">
-            You can start designing your email manually here.
+            <h2 className="font-semibold md:ml-2 text-lg flex items-center gap-2">
+              Feature Coming Soon! <FaRegFaceSmileBeam />
+            </h2>
           </TabsContent>
         </Tabs>
       </div>

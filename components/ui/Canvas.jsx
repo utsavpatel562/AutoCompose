@@ -8,32 +8,37 @@ import React, { useEffect, useRef, useState } from "react";
 import { FiLayout } from "react-icons/fi";
 import ColmunLayout from "../LayoutElements/ColmunLayout";
 import ViewHTMLDialog from "./ViewHTMLDialog";
+
 function Canvas({ viewHTMLCode, closeDialog }) {
   const htmlRef = useRef();
-  const { screenSize, setScreenSize } = useScreenSize();
-  const { dragElementLayout, setDragElementLayout } = useDragElementLayout();
+  const { screenSize } = useScreenSize();
+  const { dragElementLayout } = useDragElementLayout();
   const { emailTemplate, setEmailTemplate } = useEmailTemplate();
   const [dragOver, setDragOver] = useState(false);
-  const [htmlCode, setHTMLCode] = useState();
+  const [htmlCode, setHTMLCode] = useState("");
+
   const onDragOver = (e) => {
     e.preventDefault();
     setDragOver(true);
     console.log("Over...");
   };
+
   const onDropHandle = () => {
     setDragOver(false);
     if (dragElementLayout?.dragLayout) {
-      setEmailTemplate((prev) => [...prev, dragElementLayout?.dragLayout]);
+      setEmailTemplate((prev) => [...prev, dragElementLayout.dragLayout]);
     }
   };
+
   const getLayoutComponent = (layout) => {
-    if (layout?.type == "column") return <ColmunLayout layout={layout} />;
+    if (layout?.type === "column") return <ColmunLayout layout={layout} />;
+    return null;
   };
 
-  // To view HTML Code Generated
-
   useEffect(() => {
-    viewHTMLCode && GetHTMLCode();
+    if (viewHTMLCode) {
+      GetHTMLCode();
+    }
   }, [viewHTMLCode]);
 
   const GetHTMLCode = () => {
@@ -52,8 +57,8 @@ function Canvas({ viewHTMLCode, closeDialog }) {
           onDrop={onDropHandle}
           ref={htmlRef}
         >
-          {emailTemplate?.length > 0 ? (
-            emailTemplate?.map((layout, index) => (
+          {Array.isArray(emailTemplate) && emailTemplate.length > 0 ? (
+            emailTemplate.map((layout, index) => (
               <div key={index}>{getLayoutComponent(layout)}</div>
             ))
           ) : (

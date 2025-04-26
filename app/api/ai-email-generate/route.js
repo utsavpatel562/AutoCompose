@@ -8,15 +8,21 @@ export async function POST(req) {
 
   try {
     const result = await GenerateEmailTemplateAiModel.sendMessage(prompt);
+    let aiRespText = await result.response.text();
 
-    const aiRespText = await result.response.text(); // Get the string
-    const aiRespJson = JSON.parse(aiRespText); // Properly parse into JSON (which is your array)
+    console.log("Raw AI Response Text:", aiRespText);
 
-    console.log("AI Response:", aiRespJson);
+    // If wrapped in quotes, remove them manually
+    if (aiRespText.startsWith("'") && aiRespText.endsWith("'")) {
+      aiRespText = aiRespText.slice(1, -1); // Remove the first and last character
+    }
 
-    // Save aiRespJson directly into the database (this is already an array, no { aiResp: [...] } wrapping)
+    // Now safely parse
+    const aiRespJson = JSON.parse(aiRespText);
 
-    return NextResponse.json(aiRespJson); // Directly return the array
+    console.log("Parsed AI Response JSON:", aiRespJson);
+
+    return NextResponse.json(aiRespJson);
   } catch (e) {
     console.error("API Error:", e);
     return NextResponse.json(
@@ -25,3 +31,4 @@ export async function POST(req) {
     );
   }
 }
+
