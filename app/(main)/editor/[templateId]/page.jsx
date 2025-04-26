@@ -1,5 +1,5 @@
 "use client";
-import { useUserDetail } from "@/app/provider";
+import { useEmailTemplate, useUserDetail } from "@/app/provider";
 import SideSettings from "@/components/customs/Element/SideSettings";
 import Canvas from "@/components/ui/Canvas";
 import EditorHeader from "@/components/ui/EditorHeader";
@@ -13,6 +13,7 @@ function Editor() {
   const [viewHTMLCode, setViewHTMLCode] = useState();
   const { templateId } = useParams();
   const { userDetail, setUserDetail } = useUserDetail();
+  const { emailTemplate, setEmailTemplate } = useEmailTemplate();
   const convex = useConvex();
 
   useEffect(() => {
@@ -26,7 +27,11 @@ function Editor() {
       tid: templateId,
       email: userDetail?.email,
     });
-    console.log(result);
+
+    if (result?.design) {
+      const parsedTemplate = JSON.parse(result.design);
+      setEmailTemplate(parsedTemplate);
+    }
   };
   return (
     <div className="flex flex-col h-screen">

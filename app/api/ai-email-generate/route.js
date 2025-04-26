@@ -1,4 +1,3 @@
-// app/api/ai-email-generate/route.js
 import { GenerateEmailTemplateAiModel } from "@/config/AIModel";
 import { NextResponse } from "next/server";
 
@@ -7,13 +6,15 @@ export async function POST(req) {
 
   try {
     const result = await GenerateEmailTemplateAiModel.sendMessage(prompt);
-    const aiResp = result.response.text(); // ✅ await this!
 
-    console.log("AI Response:", aiResp);
+    const aiRespText = await result.response.text(); // Get the string
+    const aiRespJson = JSON.parse(aiRespText); // ✅ Properly parse into JSON (which is your array)
 
-    // Optionally save to DB using userEmail, tId, aiResp, etc.
+    console.log("AI Response:", aiRespJson);
 
-    return NextResponse.json({ aiResp }); // ✅ Return JSON properly
+    // Save aiRespJson directly into the database (this is already an array, no { aiResp: [...] } wrapping)
+
+    return NextResponse.json(aiRespJson); // ✅ Directly return the array
   } catch (e) {
     console.error("API Error:", e);
     return NextResponse.json(

@@ -27,10 +27,14 @@ export const GetTemplateDesign  = query ({
         tid: v.string(),
     },
     handler:async(ctx, args) => {
+        try {
        const result =  await ctx.db.query('emailTemplates')
         .filter((q)=>q.and(q.eq(q.field('tid'), args.tid),
         q.eq(q.field('email'),args.email)
     )).collect()
     return result[0];    
+} catch(e) {
+    return {}
+}
 },
 })
