@@ -157,8 +157,8 @@ function FeaturesSec() {
             <div className="lg:col-span-3">
               <Safari
                 url="magicui.design"
-                className="size-full"
-                videoSrc="/demovid.mp4"
+                className="size-full border rounded-md border-slate-200 shadow-xl"
+                videoSrc="/vid.mp4"
               />
             </div>
           </div>

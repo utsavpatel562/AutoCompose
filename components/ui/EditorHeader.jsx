@@ -33,6 +33,31 @@ function EditorHeader({ viewHTMLCode }) {
     setTimeout(() => setIsSaved(false), 2000); // <-- hide "saved" after 2 seconds
   };
 
+  const copyEmailTemplate = () => {
+    const emailElement = document.getElementById("email-preview"); // or whatever your preview container id is
+
+    if (!emailElement) {
+      console.error("Email preview not found.");
+      return;
+    }
+
+    const range = document.createRange();
+    range.selectNodeContents(emailElement);
+
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+      document.execCommand("copy");
+      alert("Template copied! Now paste it into Gmail 🎯");
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+
+    selection.removeAllRanges();
+  };
+
   return (
     <>
       <div className="p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
@@ -71,15 +96,13 @@ function EditorHeader({ viewHTMLCode }) {
           >
             <Code />
           </Button>
-          <Link href="/dashboard">
-            <Button
-              className="flex items-center border border-slate-300 rounded-sm cursor-pointer gap-1"
-              variant="outline"
-            >
-              Dashboard
-              <MdSpaceDashboard />
-            </Button>
-          </Link>
+          <Button
+            onClick={copyEmailTemplate}
+            className="flex items-center bg-slate-100 rounded-sm cursor-pointer hover:bg-slate-100 gap-1 text-slate-800 border-2 border-slate-300"
+          >
+            Copy Template
+            <MdOpenInNew /> {/* optional, you can use any icon you like */}
+          </Button>
           <div className="flex items-center gap-2">
             <Button
               onClick={onSaveTemplate}

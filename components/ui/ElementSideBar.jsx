@@ -4,6 +4,8 @@ import React from "react";
 import ElementLayoutCard from "./ElementLayoutCard";
 import ElementList from "@/Data/ElementList";
 import { useDragElementLayout } from "@/app/provider";
+import { Button } from "./button";
+import Link from "next/link";
 
 function ElementSideBar() {
   const { dragElementLayout, setDragElementLayout } = useDragElementLayout();
@@ -52,6 +54,11 @@ function ElementSideBar() {
             </div>
           ))}
         </div>
+        <Link href="/dashboard">
+          <Button className="w-full mt-4 rounded-sm bg-slate-700 hover:bg-slate-800 cursor-pointer">
+            Dashboard
+          </Button>
+        </Link>
       </div>
     </>
   );

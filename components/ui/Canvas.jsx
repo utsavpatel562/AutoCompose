@@ -57,16 +57,18 @@ function Canvas({ viewHTMLCode, closeDialog }) {
           onDrop={onDropHandle}
           ref={htmlRef}
         >
-          {Array.isArray(emailTemplate) && emailTemplate.length > 0 ? (
-            emailTemplate.map((layout, index) => (
-              <div key={index}>{getLayoutComponent(layout)}</div>
-            ))
-          ) : (
-            <h2 className="flex items-center gap-2 justify-center bg-slate-50 border border-dashed rounded-sm p-4 text-center text-2xl font-semibold text-slate-500">
-              <FiLayout />
-              Add Layout Here
-            </h2>
-          )}
+          <div id="email-preview">
+            {Array.isArray(emailTemplate) && emailTemplate.length > 0 ? (
+              emailTemplate.map((layout, index) => (
+                <div key={index}>{getLayoutComponent(layout)}</div>
+              ))
+            ) : (
+              <h2 className="flex items-center gap-2 justify-center bg-slate-50 border border-dashed rounded-sm p-4 text-center text-2xl font-semibold text-slate-500">
+                <FiLayout />
+                Add Layout Here
+              </h2>
+            )}
+          </div>
         </div>
         <ViewHTMLDialog
           openDialog={viewHTMLCode}
