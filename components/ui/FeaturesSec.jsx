@@ -15,7 +15,8 @@ function FeaturesSec() {
   return (
     <>
       <div
-        className="bg-slate-50 p-4 pb-25 w-full"
+        id="forLearnMore"
+        className="bg-slate-50 md:p-4 pb-25 w-full"
         style={{
           background:
             "radial-gradient(125% 125% at 50% 10%, rgba(255, 255, 255, 0.4) 40%, rgba(178, 102, 255, 0.4) 100%)",
@@ -28,18 +29,15 @@ function FeaturesSec() {
           <div className="blur-[106px] h-56 bg-gradient-to-br  to-purple-400 from-blue-700"></div>
           <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400  to-indigo-600"></div>
         </div>
-        <div
-          className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6"
-          id="forLearnMore"
-        >
-          <div className="text-center mt-12 text-gray-100">
-            <p className="text-slate-500" id="TopFeatures">
-              We have built many products and some of them are below
-            </p>
-            <h2 className="my-2 text-2xl font-bold text-black md:text-4xl">
+        <div className="max-w-[100%] mx-auto px-6 md:px-12 xl:px-6">
+          <div className="text-center mt-12 md:p-0 p-4 text-gray-100">
+            <h2 className="my-2 font-bold text-black text-4xl">
               Top Features of{" "}
               <span className="text-violet-700">AutoCompose</span>
             </h2>
+            <p className="text-slate-500 text-lg" id="TopFeatures">
+              We have built many products and some of them are below
+            </p>
           </div>
 
           {/* ✅ Responsive feature grid */}

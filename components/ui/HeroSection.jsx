@@ -5,9 +5,11 @@ import { Box, PanelsTopLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
 import SignInButton from "../customs/SignInButton";
 import { useUserDetail } from "@/app/provider";
+import { useRouter } from "next/navigation";
 
 function HeroSection() {
   const { userDetail, setUserDetail } = useUserDetail();
+  const router = useRouter();
   return (
     <>
       <div>
@@ -28,22 +30,29 @@ function HeroSection() {
                 email templates for any occasion — saving you time and boosting
                 productivity.
               </p>
-              <div className="flex items-center justify-center gap-2 sm:flex sm:space-y-0 py-11">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-11 relative z-[20]">
                 {userDetail?.email ? (
-                  <a href="/dashboard">
-                    <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-900 rounded-sm shadow-lg hover:shadow-none">
-                      Dashboard <PanelsTopLeft />
-                    </Button>
-                  </a>
+                  <Button
+                    onClick={() => router.push("/dashboard")}
+                    className="flex w-full md:w-fit justify-center items-center gap-2 cursor-pointer p-5 border-2 border-slate-800 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none"
+                  >
+                    Dashboard <PanelsTopLeft />
+                  </Button>
                 ) : (
                   <SignInButton />
                 )}
-                <Link href="/#forLearnMore">
-                  <Button className="flex items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none">
-                    Learn More
-                    <Box />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => {
+                    const element = document.getElementById("forLearnMore");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="flex w-full md:w-fit justify-center items-center gap-2 cursor-pointer p-5 border-2 border-slate-600 text-slate-600 font-medium md:text-lg bg-slate-50 duration-150 hover:bg-slate-50 rounded-sm shadow-lg hover:shadow-none"
+                >
+                  Learn More
+                  <Box className="w-6 h-6" />
+                </Button>
               </div>
             </div>
           </div>

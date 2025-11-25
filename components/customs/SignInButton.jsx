@@ -43,7 +43,7 @@ function SignInButton() {
   return (
     <button
       onClick={googleLogin}
-      className="flex items-center gap-2 cursor-pointer p-2 pr-4 pl-4 border-2 border-slate-800 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none"
+      className="w-full md:w-fit justify-center md:text-md flex items-center gap-2 cursor-pointer p-2 pr-4 pl-4 border-2 border-slate-800 text-slate-100 font-medium bg-slate-800 duration-150 hover:bg-slate-950 rounded-sm shadow-lg hover:shadow-none"
     >
       Get Started
       <User className="w-4 h-4" />
