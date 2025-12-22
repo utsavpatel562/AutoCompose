@@ -2,7 +2,7 @@
 AutoCompose is a powerful AI-powered Email Template Generator 🚀 — featuring an intuitive drag & drop layout builder, save & reuse templates, and custom branding options, all built with a modern tech stack.
 
 ###
-<img src="public/demoimg.png" alt="AutoCompose Final Look"/>
+<img src="public/demo.png" alt="AutoCompose Final Look"/>
 
 🧠 AI Template generation is powered by **Google AI Studio** using **Gemini API**.
 
